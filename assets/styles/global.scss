@@ -42,18 +42,17 @@ a.download {
 }
 mark {
     background-color: $selection;
+    color: inherit;
 }
 
 header {
     margin: 6rem 0 0 7rem;
+    font-size: 2rem;
 
     h1 {
         text-transform: uppercase;
         font-weight: bold;
         font-size: 3.5rem;
-    }
-    h2 {
-        font-size: 2rem;
     }
 }
 
@@ -68,6 +67,7 @@ footer {
     margin-bottom: 2rem;
     position: absolute;
     bottom: 0;
+    font-size: 1.2em;
 
     a {
         display: inline-block;
@@ -75,7 +75,6 @@ footer {
         text-transform: uppercase;
         color: $color-text;
         font-weight: bold;
-        font-size: 1.2em;
         transition: 0.3s;
 
         &:before {
