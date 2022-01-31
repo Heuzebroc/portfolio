@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<body style="background-color: #19011A">
+    <div class="cardinal folded cardinal-top" id="toplink-img"><img src="{{ top.url }}"></div>
+    <div class="cardinal folded cardinal-top" id="rightlink-img"><img src="{{ right.url }}"></div>
+    <div class="cardinal folded cardinal-top" id="bottomlink-img"><img src="{{ bottom.url }}"></div>
+    <div class="cardinal folded cardinal-top" id="leftlink-img"><img src="{{ left.url }}"></div>
+
+    <div class="main-section">
+        <img class="background" src="images/form.png">
+
+        <header class="main-nav">
+            <a href="{{ top.route ?? '#' }}" id="toplink" class="cardinal slidein cardinal-static">{{ top.name }}</a>
+            <a href="{{ right.route ?? '#' }}" id="rightlink" class="cardinal slidein cardinal-static">{{ right.name }}</a>
+            <a href="{{ bottom.route ?? '#' }}" id="bottomlink" class="cardinal slidein cardinal-static">{{ bottom.name }}</a>
+            <a href="{{ left.route ?? '#' }}" id="leftlink" class="cardinal slidein cardinal-static">{{ left.name }}</a>
+        </header>
+
+        {% block content %}{% endblock %}
+    </div>
+</body>
+{% endblock %}

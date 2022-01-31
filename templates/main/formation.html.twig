@@ -1,0 +1,37 @@
+{% extends 'longpage.html.twig' %}
+
+{% block title %}Hugo Heuzebroc - Développeur full-stack{% endblock %}
+
+{% block content %}
+    <section class="hide">
+        <div class="section-inner">
+            <h1>Mon parcours</h1>
+
+            <div class="column left">
+                {% include 'clock.html.twig' %}
+            </div>
+
+            <div class="column right dotted-titles">
+                <h2><em>2015</em>Formation HTML5 et CSS3</h2>
+                <p>Autoformation</p>
+
+                <h2><em>2016</em>Formation à Java</h2>
+                <p>Autoformation</p>
+
+                <h2><em>2018-2020</em>BTS Services informatiques aux organisations</h2>
+                <p>BTS SIO option SLAM (solutions logicielles et applications métier) au lycée Saint-Vincent de Senlis</p>
+
+                <h2><em>2018</em>Formation javascript et JQuery</h2>
+                <p>Dans le cadre du BTS</p>
+
+                <h2><em>2019</em>Formation à PHP</h2>
+                <p>Dans le cadre du BTS</p>
+
+                <h2><em>2020-2021</em>Licence informatique générale</h2>
+                <p>Licence informatique générale en alternance au lycée Saint-Vincent de Senlis</p>
+            </div>
+
+            <div class="clear"></div>
+        </div>
+    </section>
+{% endblock %}

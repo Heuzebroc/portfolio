@@ -1,0 +1,33 @@
+.clock {
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  height: 40vh;
+  width: 40vh;
+  position: sticky;
+  top: 0;
+
+  .center {
+    width: 0;
+    height: 0;
+    position: relative;
+    top: 50%;
+    left: 50%;
+
+    .hand {
+      position: relative;
+      width: 0;
+      height: 0;
+
+      img {
+        transform: translate(-50%, -1.5vh);
+      }
+
+      &.minute img {
+        width: 3vh;
+      }
+      &.hour img {
+        width: 5vh;
+      }
+    }
+  }
+}

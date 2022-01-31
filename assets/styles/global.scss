@@ -1,0 +1,134 @@
+/* (c) Hugo Heuzebroc - 2021 */
+/* GLOBAL */
+body {
+    font-family: Arial, sans-serif;
+
+    &.noscroll {
+        overflow: hidden;
+    }
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+.hide {
+    opacity: 0;
+    transition: opacity 1.5s ease-out;
+}
+a {
+    text-decoration: none;
+}
+.column {
+    max-width: 50%;
+
+    &.left {
+        float: left;
+    }
+    &.right {
+        float: right;
+    }
+}
+.clear {
+    clear: both;
+}
+
+img.background {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    object-position: center;
+    object-fit: cover;
+    z-index: -5;
+    top: 0;
+}
+
+/* SUNSET PAGE */
+.sunset-wrapper {
+    height: 100vh;
+
+    header {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        margin: 0 auto;
+        text-align: center;
+        max-width: 800px;
+        max-height: 75vh;
+        transition: opacity 1.5s ease-out;
+
+        &:hover h1 {
+            text-shadow: 0 1px 16px $color-second;
+            transition: 1s;
+        }
+
+        .main-title {
+            h1 {
+                font-size: 3em;
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+/* NORMAL PAGE */
+.main-section {
+    header {
+        text-align: center;
+        height: 12vh;
+        overflow: hidden;
+    }
+
+    section {
+        transition: opacity 1.5s ease-out;
+
+        .section-inner {
+            padding-top: 5vh;
+            padding-bottom: 5vh;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+    }
+}
+
+h1 {
+    color: transparentize($color-text, 0.2);
+    font-size: 2em;
+    text-shadow: 0 1px 8px transparentize($color-main, 0.3);
+    transition: 1s;
+    margin-bottom: 2em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+h2 {
+    color: transparentize($color-text, 0.4);
+    font-size: 1.3em;
+    text-shadow: 0 1px 8px transparentize($color-main, 0.5);
+    margin-bottom: 0.5em;
+    text-transform: uppercase;
+}
+
+p {
+    color: transparentize($color-text, 0.2);
+    margin-bottom: 2em;
+    text-transform: none;
+}
+
+.dotted-titles {
+    h2 {
+        position: relative;
+        text-align: left;
+
+        em {
+            font-style: normal;
+            font-size: 0.7em;
+            position: absolute;
+            left: -6em;
+            display: grid;
+            align-content: center;
+            height: 100%;
+            text-align: right;
+            width: 5em;
+        }
+    }
+}
