@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<body>
+    <img class="background" src="{% block background %}{% endblock %}">
+    <div class="background overlay"></div>
+
+    <header>
+        <h1>{% block title %}{% endblock %}</h1>
+        <h2>{% block subtitle %}{% endblock %}</h2>
+    </header>
+
+    <div id="main">
+        {% block main %}{% endblock %}
+    </div>
+
+    <div id="float">
+        {% block float %}{% endblock %}
+    </div>
+
+    <footer>
+        <a href="#">Mon parcours</a>
+        <a href="#">Mes réalisations</a>
+        <a href="#">Me contacter</a>
+        <a href="#">Github</a>
+    </footer>
+</body>
+{% endblock %}

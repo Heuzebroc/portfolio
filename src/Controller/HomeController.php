@@ -15,7 +15,7 @@ class HomeController extends AbstractController
     {
         return $this->render('main/home.html.twig', [
             "top" => $this->educationLink(),
-            "right" => ["route" => "", "name" => "Expérience", "url" => "/images/form.png"],
+            "right" => ["route" => "", "name" => "Réalisations", "url" => "/images/form.png"],
             "bottom" => ["route" => "", "name" => "Me contacter", "url" => "/images/form.png"],
             "left" => $this->aboutLink(),
         ]);

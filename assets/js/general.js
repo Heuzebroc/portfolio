@@ -1,12 +1,3 @@
-//making hidden elements appear
-document.querySelectorAll('.hide').forEach(e => {
-    e.classList.remove('hide');
-});
-
-document.querySelectorAll('.slidein').forEach(e => {
-    e.classList.remove('slidein');
-});
-
 //cardinal links
 document.querySelectorAll('a.cardinal').forEach(link => {
     const img = document.getElementById(`${link.id}-img`);
