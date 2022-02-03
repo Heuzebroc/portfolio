@@ -45,21 +45,27 @@ mark {
     color: inherit;
 }
 
+section {
+    padding: 6rem;
+    min-height: 100vh;
+
+    .text-side {
+        width: 50%;
+    }
+    .figure-side {
+        float: right;
+    }
+}
+
 header {
-    margin: 6rem 0 0 7rem;
     font-size: 2rem;
+    margin-bottom: 1.5rem;
 
     h1 {
         text-transform: uppercase;
         font-weight: bold;
         font-size: 3.5rem;
     }
-}
-
-#main {
-    margin-left: 7rem;
-    margin-top: 2.5rem;
-    max-width: 40%;
 }
 
 footer {
@@ -100,6 +106,7 @@ footer {
     object-fit: cover;
     z-index: -5;
     top: 0;
+    left: 0;
 
     &.overlay {
         background-color: black;

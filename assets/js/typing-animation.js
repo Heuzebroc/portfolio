@@ -3,7 +3,7 @@ const title = document.querySelector("header h1"),
     titleText = title.innerHTML;
 const subtitle = document.querySelector("header h2"),
     subtitleText = subtitle.innerHTML;
-const mainSection = document.querySelector('#main');
+const mainSection = document.querySelector('.figure-side');
 
 //preparing the document
 title.innerHTML = "";
@@ -11,7 +11,7 @@ subtitle.innerHTML = "";
 subtitle.style.fontSize = "50%";
 mainSection.style.display = "none";
 
-//typing one character
+//making an element appear as if it's being typed
 const typeOne = (element, text, delay) => {
     element.innerHTML += text.charAt(element.innerHTML.length);
 
@@ -40,32 +40,32 @@ const highlight = (element, doHighlight) => {
                 .replaceAll("</mark></p>", "</p>");
         }
     }
-
-    nextStep();
 };
-
-//changing a CSS property
-const css = (element, property, value) => {
-    element.style[property] = value;
-    nextStep();
-}
 
 //MAIN SEQUENCE
 const steps = [
-    {step: () => typeOne(title, titleText, 70), delay: 500},
-    {step: () => typeOne(subtitle, subtitleText, 50), delay: 150},
+    {step: () => typeOne(title, titleText, 70), delay: 500, noCallback: true},
+    {step: () => typeOne(subtitle, subtitleText, 30), delay: 150, noCallback: true},
     {step: () => highlight(subtitle, true), delay: 150},
-    {step: () => css(subtitle, "font-size", "75%"), delay: 150},
-    {step: () => css(subtitle, "font-size", "100%"), delay: 150},
+    {step: () => {subtitle.style.fontSize = "75%"}, delay: 150},
+    {step: () => {subtitle.style.fontSize = "100%"}, delay: 150},
     {step: () => highlight(subtitle, false), delay: 150},
     {step: () => highlight(mainSection, true), delay: 0},
-    {step: () => css(mainSection, "display", "block"), delay: 150},
+    {step: () => {mainSection.style.display = "block"}, delay: 150},
     {step: () => highlight(mainSection, false), delay: 250},
 ];
 let currentStep = 0;
 
 const nextStep = () => {
-    if(currentStep < steps.length) setTimeout(steps[currentStep].step, steps[currentStep].delay);
+    if(currentStep < steps.length) {
+        if(steps[currentStep].noCallback) {
+            setTimeout(steps[currentStep].step, steps[currentStep].delay);
+        }
+        else {
+            //by the time the callback is executed, the value of currentStep will have changed
+            setTimeout(() => {steps[currentStep-1].step(); nextStep()}, steps[currentStep].delay);
+        }
+    }
 
     currentStep++;
 }
