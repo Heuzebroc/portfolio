@@ -21,11 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="e893b4d4-e0d0-40c9-81fd-cdae90360cf4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/typing-animation.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/typing-animation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/global.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/main/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main/home.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/page.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,6 +184,9 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\www\siteperso\templates" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\www\siteperso\assets\js" />
       <recent name="C:\xampp\htdocs\www\siteperso\templates" />
@@ -253,7 +253,8 @@
       <workItem from="1643729750346" duration="1364000" />
       <workItem from="1643890013517" duration="1770000" />
       <workItem from="1643891816860" duration="1775000" />
-      <workItem from="1643893626822" duration="1148000" />
+      <workItem from="1643893626822" duration="1764000" />
+      <workItem from="1643895453889" duration="1769000" />
     </task>
     <servers />
   </component>
