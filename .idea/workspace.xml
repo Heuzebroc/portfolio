@@ -21,8 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="e893b4d4-e0d0-40c9-81fd-cdae90360cf4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,20 +179,20 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets/js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/admin" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\www\siteperso\templates" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\www\siteperso\templates\admin" />
       <recent name="C:\xampp\htdocs\www\siteperso\assets\js" />
       <recent name="C:\xampp\htdocs\www\siteperso\templates" />
       <recent name="C:\xampp\htdocs\www\siteperso\templates\main" />
       <recent name="C:\xampp\htdocs\www\siteperso\templates\Main" />
-      <recent name="C:\xampp\htdocs\www\siteperso" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\www\siteperso\templates" />
     </key>
   </component>
   <component name="RunManager">
@@ -255,6 +255,8 @@
       <workItem from="1643891816860" duration="1775000" />
       <workItem from="1643893626822" duration="1764000" />
       <workItem from="1643895453889" duration="1769000" />
+      <workItem from="1643897262601" duration="1787000" />
+      <workItem from="1643899084248" duration="1784000" />
     </task>
     <servers />
   </component>
