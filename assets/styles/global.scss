@@ -46,14 +46,21 @@ mark {
 }
 
 section {
-    padding: 6rem;
     min-height: 100vh;
+    position: relative;
 
-    .text-side {
-        width: 50%;
-    }
-    .figure-side {
-        float: right;
+    .section-inner {
+        padding: 6rem;
+
+        .text-side {
+            width: 45%;
+            margin-right: 5%;
+        }
+        .figure-side {
+            float: right;
+            width: 45%;
+            margin-left: 5%;
+        }
     }
 }
 
@@ -105,8 +112,6 @@ footer {
     object-position: center;
     object-fit: cover;
     z-index: -5;
-    top: 0;
-    left: 0;
 
     &.overlay {
         background-color: black;

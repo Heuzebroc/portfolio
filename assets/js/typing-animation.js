@@ -3,7 +3,7 @@ const title = document.querySelector("header h1"),
     titleText = title.innerHTML;
 const subtitle = document.querySelector("header h2"),
     subtitleText = subtitle.innerHTML;
-const mainSection = document.querySelector('.figure-side');
+const mainSection = document.querySelector('#animation-first-paragraph');
 
 //preparing the document
 title.innerHTML = "";
