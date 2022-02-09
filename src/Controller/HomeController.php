@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\RealisationRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -10,14 +11,15 @@ class HomeController extends AbstractController
 {
     /**
      * @Route("/", name="home")
+     * @param RealisationRepository $repository
+     * @return Response
      */
-    public function index(): Response
+    public function index(RealisationRepository $repository): Response
     {
+        $realisations = $repository->findAll();
+
         return $this->render('main/home.html.twig', [
-            "top" => $this->educationLink(),
-            "right" => ["route" => "", "name" => "Réalisations", "url" => "/images/form.png"],
-            "bottom" => ["route" => "", "name" => "Me contacter", "url" => "/images/form.png"],
-            "left" => $this->aboutLink(),
+            'realisations' => $realisations
         ]);
     }
 
@@ -27,10 +29,7 @@ class HomeController extends AbstractController
     public function formation(): Response
     {
         return $this->render('main/formation.html.twig', [
-            "top" => $this->homeLink(),
-            "right" => ["route" => "", "name" => "Expérience", "url" => ""],
-            "bottom" => ["route" => "", "name" => "Me contacter", "url" => ""],
-            "left" => $this->aboutLink(),
+
         ]);
     }
 
@@ -40,26 +39,7 @@ class HomeController extends AbstractController
     public function about(): Response
     {
         return $this->render('main/about.html.twig', [
-            "top" => $this->educationLink(),
-            "right" => ["route" => "", "name" => "Expérience", "url" => "/images/form.png"],
-            "bottom" => ["route" => "", "name" => "Me contacter", "url" => "/images/form.png"],
-            "left" => $this->homeLink(),
+
         ]);
-    }
-
-    //variable presets for the cardinal links
-    private function homeLink(): array
-    {
-        return ["route" => $this->generateUrl('home'), "name" => "Accueil", "url" => "/images/sunset.jpg"];
-    }
-
-    private function educationLink(): array
-    {
-        return ["route" => $this->generateUrl('education'), "name" => "Mon parcours", "url" => "/images/form.png"];
-    }
-
-    private function aboutLink(): array
-    {
-        return ["route" => $this->generateUrl('about'), "name" => "À propos de moi", "url" => "/images/about.jpg"];
     }
 }

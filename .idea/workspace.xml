@@ -21,8 +21,10 @@
   <component name="ChangeListManager">
     <list default="true" id="e893b4d4-e0d0-40c9-81fd-cdae90360cf4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/typing-animation.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/typing-animation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/global.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/main/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main/home.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -257,6 +259,14 @@
       <workItem from="1643895453889" duration="1769000" />
       <workItem from="1643897262601" duration="1787000" />
       <workItem from="1643899084248" duration="1784000" />
+      <workItem from="1643900920100" duration="1774000" />
+      <workItem from="1644322188217" duration="618000" />
+      <workItem from="1644324004632" duration="598000" />
+      <workItem from="1644325820582" duration="948000" />
+      <workItem from="1644327637023" duration="660000" />
+      <workItem from="1644329444982" duration="611000" />
+      <workItem from="1644331255153" duration="597000" />
+      <workItem from="1644402699155" duration="529000" />
     </task>
     <servers />
   </component>
