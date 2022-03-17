@@ -6,6 +6,10 @@
         <div class="background overlay"></div>
 
         <div class="section-inner">
+            <div class="figure-side">
+                {% include "carousel.html.twig" with {realisations: realisations} %}
+            </div>
+
             <div class="text-side">
                 <header>
                     <h1>Hugo Heuzebroc</h1>
@@ -17,9 +21,6 @@
 
                     <a class="download" href="cv.pdf" download>Télécharger mon CV</a>
                 </div>
-            </div>
-
-            <div class="figure-side">
             </div>
         </div>
     </section>

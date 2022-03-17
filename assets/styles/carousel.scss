@@ -1,0 +1,14 @@
+.figure-side .carousel {
+  img {
+    max-height: 400px;
+    object-fit: cover;
+    box-shadow: -5px -5px $color-shadow;
+  }
+  .carousel-inner {
+    text-align: center;
+
+    h3 {
+      padding-top: 5px;
+    }
+  }
+}

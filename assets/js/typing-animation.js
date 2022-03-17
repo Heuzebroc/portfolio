@@ -4,12 +4,14 @@ const title = document.querySelector("header h1"),
 const subtitle = document.querySelector("header h2"),
     subtitleText = subtitle.innerHTML;
 const mainSection = document.querySelector('#animation-first-paragraph');
+const figure = document.querySelector('.figure-side');
 
 //preparing the document
 title.innerHTML = "";
 subtitle.innerHTML = "";
 subtitle.style.fontSize = "50%";
 mainSection.style.display = "none";
+figure.style.display = "none";
 
 //making an element appear as if it's being typed
 const typeOne = (element, text, delay) => {
@@ -39,6 +41,10 @@ const highlight = (element, doHighlight) => {
                 .replaceAll("<p><mark>", "<p>")
                 .replaceAll("</mark></p>", "</p>");
         }
+
+        element.querySelectorAll('img').forEach(img => {
+            img.classList.toggle('highlighted');
+        });
     }
 };
 
@@ -53,6 +59,10 @@ const steps = [
     {step: () => highlight(mainSection, true), delay: 0},
     {step: () => {mainSection.style.display = "block"}, delay: 150},
     {step: () => highlight(mainSection, false), delay: 250},
+    {step: () => highlight(mainSection, false), delay: 150},
+    {step: () => highlight(figure, true), delay: 0},
+    {step: () => {figure.style.display = "block"}, delay: 20},
+    {step: () => highlight(figure, false), delay: 250},
 ];
 let currentStep = 0;
 
