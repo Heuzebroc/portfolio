@@ -5,22 +5,22 @@
         <img class="background" src="/images/code.jpg">
         <div class="background overlay"></div>
 
-        <div class="section-inner">
-            <div class="figure-side">
-                {% include "carousel.html.twig" with {realisations: realisations} %}
-            </div>
-
-            <div class="text-side">
+        <div class="section-inner columns">
+            <div class="column">
                 <header>
                     <h1>Hugo Heuzebroc</h1>
-                    <h2>Développeur full-stack</h2>
+                    <p>Développeur full-stack</p>
                 </header>
 
                 <div id="animation-first-paragraph">
-                    <p><em>Bonjour, je m'appelle Hugo !</em> J'ai 22 ans, j'habite dans l'Oise, et je suis passionné d'informatique. Dans le cadre de mes études, de mon travail ou simplement pour m'amuser, j'ai développé des sites webs, des applications métier, des API, des jeux vidéo et des systèmes d'exploitation. Je dispose d'un BTS Services informatiques aux organisations et d'une licence informatique générale, et je suis habitué à travailler en méthode agile.</p>
+                    <p><em>Bonjour, je m'appelle Hugo !</em> J'ai 23 ans, j'habite dans l'Oise et je suis passionné de développement. Dans le cadre de mes études, de mon travail ou simplement pour mon plaisir, j'ai développé des site web, des applications métier, des API, des jeux vidéo et des systèmes d'exploitation. Possesseur d'un BTS Services informatiques aux organisations et d'une licence informatique générale, je suis habitué à travailler en équipe et en méthode agile.</p>
 
                     <a class="download" href="cv.pdf" download>Télécharger mon CV</a>
                 </div>
+            </div>
+
+            <div class="column">
+                {% include "carousel.html.twig" with {realisations: realisations} %}
             </div>
         </div>
     </section>
@@ -29,6 +29,156 @@
         <img class="background" src="/images/sunset.jpg">
         <div class="background overlay"></div>
 
-        <h1>J'aime le veau</h1>
+        <div class="section-inner columns">
+            <div class="column">
+                <h2>Compétences</h2>
+
+                <p></p>
+
+                <p>Je m'exerce également sur le site compétitif <em><a href="https://cssbattle.dev/player/reyas" target="_blank">CSSbattle</a></em>, où j'ai atteint le top 100 mondial pour plusieurs exercices.</p>
+            </div>
+
+            <div class="column">
+                <h3>Langages & frameworks</h3>
+
+                <div class="skills">
+                    <article>
+                        <h4>Drupal 10</h4>
+                        CMS
+                    </article>
+
+                    <article>
+                        <h4>Javascript ES7</h4>
+                        Langage web
+                    </article>
+
+                    <article>
+                        <h4>Symfony 6</h4>
+                        Framework
+                    </article>
+
+                    <article>
+                        <h4>Wordpress 6</h4>
+                        CMS
+                    </article>
+
+                    <article>
+                        <h4>Python</h4>
+                        CMS
+                    </article>
+
+                    <article>
+                        <h4>C#</h4>
+                        Langage logiciel
+                    </article>
+
+                    <article>
+                        <h4>Java</h4>
+                        Langage logiciel
+                    </article>
+
+                    <article>
+                        <h4>Assembleur</h4>
+                        Langage logiciel
+                    </article>
+                </div>
+
+                <h3>Logiciels & OS</h3>
+
+                <div class="skills">
+                    <article>
+                        <h4>Redmine</h4>
+                        Bugtracker
+                    </article>
+
+                    <article>
+                        <h4>Git</h4>
+                        Versionnement
+                    </article>
+
+                    <article>
+                        <h4>Systèmes Linux</h4>
+                        OS
+                    </article>
+
+                    <article>
+                        <h4>PHPstorm</h4>
+                        IDE
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <img class="background" src="/images/code.jpg">
+        <div class="background overlay"></div>
+
+        <div class="section-inner">
+            <h2>Mon parcours</h2>
+
+            <div class="columns">
+                <div class="column">
+                    <div class="dotted-titles">
+                        <h3><em>2018-2020</em>BTS Services informatiques aux organisations</h3>
+                        <p>BTS SIO option SLAM (solutions logicielles et applications métier) au lycée Saint-Vincent de Senlis</p>
+
+                        <h3><em>Jan - Fév 2020</em>Stage de deux mois au sein de l'agence web <a href="https://nodevo.com">Nodevo</a></h3>
+                        <p>Travail en équipe, utilisation de la méthode agile, initiation au rôle de coordinateur technique (CT).</p>
+
+                        <h3><em>2020-2021</em>Licence informatique générale</h3>
+                        <p>Licence informatique générale en alternance au lycée Saint-Vincent de Senlis. Enseignement réalisé par des professionels.</p>
+
+                        <h3><em>2020-2021</em>Alternance au sein de l'agence web <a href="https://nodevo.com">Nodevo</a></h3>
+                        <p>Alternance d'une durée d'un an en tant que développeur full-stack dans l'agence web Nodevo à Chantilly</p>
+                    </div>
+                </div>
+
+                <div class="column column-centered">
+                    {% include 'clock.html.twig' %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <img class="background" src="/images/code.jpg">
+        <div class="background overlay"></div>
+
+        <div class="section-inner">
+            <h2>Réalisations</h2>
+
+            <div class="realisations">
+                {% for realisation in realisations %}
+                    <article>
+                        <img src="images/{{ realisation.introImageFileName }}">
+                        <h3>{{ realisation.title }}</h3>
+                        <p>{{ realisation.intro }}</p>
+                        <a href="#">Détails</a>
+                    </article>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <img class="background" src="/images/sunset.jpg">
+        <div class="background overlay"></div>
+
+        <div class="section-inner">
+            <h2>Me contacter</h2>
+
+            <div class="columns">
+                <div class="column">
+                    <div class="dotted-titles">
+                        <p><em>Email</em>hugo.heuzebroc.oise@gmail.com - <a href="mailto:hugo.heuzebroc.oise@gmail.com" target="_blank">M'envoyer un mail</a></p>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <!-- TODO contact form -->
+                </div>
+            </div>
+        </div>
     </section>
 {% endblock %}

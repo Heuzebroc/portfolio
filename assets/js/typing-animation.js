@@ -1,10 +1,10 @@
 //elements needed
 const title = document.querySelector("header h1"),
     titleText = title.innerHTML;
-const subtitle = document.querySelector("header h2"),
+const subtitle = document.querySelector("header p"),
     subtitleText = subtitle.innerHTML;
 const mainSection = document.querySelector('#animation-first-paragraph');
-const figure = document.querySelector('.figure-side');
+const figure = document.querySelector('section .columns .column:nth-child(2)');
 
 //preparing the document
 title.innerHTML = "";

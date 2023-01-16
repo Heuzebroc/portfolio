@@ -1,10 +1,8 @@
 .clock {
   border-radius: 50%;
   border: 2px solid rgba(255, 255, 255, 0.3);
-  height: 40vh;
-  width: 40vh;
-  position: sticky;
-  top: 0;
+  height: 60vh;
+  width: 60vh;
 
   .center {
     width: 0;
@@ -19,14 +17,14 @@
       height: 0;
 
       img {
-        transform: translate(-50%, -1.5vh);
+        transform: translate(-50%, -3.25vh);
       }
 
       &.minute img {
-        width: 3vh;
+        width: 4vh;
       }
       &.hour img {
-        width: 5vh;
+        width: 7.5vh;
       }
     }
   }

@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Realisation;
 use App\Repository\RealisationRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -24,22 +25,21 @@ class HomeController extends AbstractController
     }
 
     /**
-     * @Route("/formation", name="education")
+     * @Route("/realisation/{id}", name="realisation")
+     * @param RealisationRepository $repository
+     * @param $id
+     * @return Response
      */
-    public function formation(): Response
+    public function realisation(RealisationRepository $repository, $id): Response
     {
-        return $this->render('main/formation.html.twig', [
+        $realisation = $repository->find($id);
 
-        ]);
-    }
+        if(!$realisation) {
+            //TODO ERROR PAGE
+        }
 
-    /**
-     * @Route("/a-propos-de-moi", name="about")
-     */
-    public function about(): Response
-    {
-        return $this->render('main/about.html.twig', [
-
+        return $this->render('main/realisation.html.twig', [
+            'realisation' => $repository->find($id)
         ]);
     }
 }

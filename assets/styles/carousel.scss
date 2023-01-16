@@ -1,8 +1,7 @@
-.figure-side .carousel {
+.column .carousel {
   img {
     max-height: 400px;
     object-fit: cover;
-    box-shadow: -5px -5px $color-shadow;
   }
   .carousel-inner {
     text-align: center;
