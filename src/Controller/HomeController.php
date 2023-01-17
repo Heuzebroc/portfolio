@@ -14,6 +14,20 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends AbstractController
 {
+    //options for the info controller
+    const FORM_SUBMITTED = 0,
+        INVALID_REALISATION = 1;
+    const INFO_OPTIONS = [
+        [
+            'title' => 'Merci à vous',
+            'message' => 'Votre message a bien été envoyé. Je vous répondrai sous peu.'
+        ],
+        [
+            'title' => 'Réalisation indisponible',
+            'message' => "Désolé, cette réalisation n'est pas disponible pour le moment. Cela peut être pour cause de maintenance, ou tout simplement car elle n'existe pas."
+        ]
+    ];
+
     /**
      * @Route("/", name="home")
      * @param RealisationRepository $repository
@@ -33,7 +47,7 @@ class HomeController extends AbstractController
             $entityManager->persist($message);
             $entityManager->flush();
 
-            return $this->redirectToRoute('info', ["msg" => 1]);
+            return $this->redirectToRoute('info', ["msgId" => self::FORM_SUBMITTED]);
         }
 
         return $this->render('main/home.html.twig', [
@@ -53,7 +67,7 @@ class HomeController extends AbstractController
         $realisation = $repository->find($id);
 
         if(!$realisation) {
-            return $this->redirectToRoute('info', ["msg" => 2]);
+            return $this->redirectToRoute('info', ["msgId" => self::INVALID_REALISATION]);
         }
 
         return $this->render('main/realisation.html.twig', [
@@ -62,14 +76,15 @@ class HomeController extends AbstractController
     }
 
     /**
-     * @Route("/info/{msg}", name="info")
-     * @param $msg
+     * @Route("/info/{msgId}", name="info")
+     * @param $msgId
      * @return Response
      */
-    public function info($msg): Response
+    public function info($msgId): Response
     {
         return $this->render('main/info.html.twig', [
-            'message' => $msg
+            'title' => self::INFO_OPTIONS[$msgId]['title'],
+            'message' => self::INFO_OPTIONS[$msgId]['message']
         ]);
     }
 }
