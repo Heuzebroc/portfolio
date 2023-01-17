@@ -13,7 +13,7 @@
                 </header>
 
                 <div id="animation-first-paragraph">
-                    <p><em>Bonjour, je m'appelle Hugo !</em> J'ai 23 ans, j'habite dans l'Oise et je suis passionné de développement. Dans le cadre de mes études, de mon travail ou simplement pour mon plaisir, j'ai développé des site web, des applications métier, des API, des jeux vidéo et des systèmes d'exploitation. Possesseur d'un BTS Services informatiques aux organisations et d'une licence informatique générale, je suis habitué à travailler en équipe et en méthode agile.</p>
+                    <p><em>Bonjour, je m'appelle Hugo !</em> J'ai 23 ans, j'habite dans l'Oise et je suis passionné d'informatique. Dans le cadre de mes études, de mon travail ou simplement pour mon plaisir, j'ai développé des site web, des applications métier, des API, des jeux vidéo et des systèmes d'exploitation. Possesseur d'un BTS Services informatiques aux organisations et d'une licence informatique générale, je suis habitué à travailler en équipe et en méthode agile.</p>
 
                     <a class="download" href="cv.pdf" download>Télécharger mon CV</a>
                 </div>
@@ -33,78 +33,42 @@
             <div class="column">
                 <h2>Compétences</h2>
 
-                <p></p>
+                <p>Je m'entraîne en réalisant des projets personnels utilisant mes compétences. Parfois, ces projets font appel à mes connaissances dans d'autres disciplines, comme les mathématiques ou la musique.</p>
 
-                <p>Je m'exerce également sur le site compétitif <em><a href="https://cssbattle.dev/player/reyas" target="_blank">CSSbattle</a></em>, où j'ai atteint le top 100 mondial pour plusieurs exercices.</p>
+                <p>Je m'exerce également sur le site compétitif <a href="https://cssbattle.dev/player/reyas" target="_blank">CSSbattle</a>, où j'ai atteint le top 100 mondial pour plusieurs exercices.</p>
             </div>
 
             <div class="column">
                 <h3>Langages & frameworks</h3>
 
                 <div class="skills">
-                    <article>
-                        <h4>Drupal 10</h4>
-                        CMS
-                    </article>
+                    <article><h4>Drupal 10</h4>CMS</article>
 
-                    <article>
-                        <h4>Javascript ES7</h4>
-                        Langage web
-                    </article>
+                    <article><h4>Javascript ES7</h4>Langage web</article>
 
-                    <article>
-                        <h4>Symfony 6</h4>
-                        Framework
-                    </article>
+                    <article><h4>Symfony 6</h4>Framework</article>
 
-                    <article>
-                        <h4>Wordpress 6</h4>
-                        CMS
-                    </article>
+                    <article><h4>Wordpress 6</h4>CMS</article>
 
-                    <article>
-                        <h4>Python</h4>
-                        CMS
-                    </article>
+                    <article><h4>Python</h4>CMS</article>
 
-                    <article>
-                        <h4>C#</h4>
-                        Langage logiciel
-                    </article>
+                    <article><h4>C#</h4>Langage logiciel</article>
 
-                    <article>
-                        <h4>Java</h4>
-                        Langage logiciel
-                    </article>
+                    <article><h4>Java</h4>Langage logiciel</article>
 
-                    <article>
-                        <h4>Assembleur</h4>
-                        Langage logiciel
-                    </article>
+                    <article><h4>Assembleur</h4>Langage logiciel</article>
                 </div>
 
                 <h3>Logiciels & OS</h3>
 
                 <div class="skills">
-                    <article>
-                        <h4>Redmine</h4>
-                        Bugtracker
-                    </article>
+                    <article><h4>Redmine</h4>Bugtracker</article>
 
-                    <article>
-                        <h4>Git</h4>
-                        Versionnement
-                    </article>
+                    <article><h4>Git</h4>Versionnement</article>
 
-                    <article>
-                        <h4>Systèmes Linux</h4>
-                        OS
-                    </article>
+                    <article><h4>Systèmes Linux</h4>OS</article>
 
-                    <article>
-                        <h4>PHPstorm</h4>
-                        IDE
-                    </article>
+                    <article><h4>PHPstorm</h4>IDE</article>
                 </div>
             </div>
         </div>
@@ -142,12 +106,11 @@
     </section>
 
     <section>
-        <img class="background" src="/images/code.jpg">
+        <img class="background" src="/images/sunset.jpg">
         <div class="background overlay"></div>
 
         <div class="section-inner">
             <h2>Réalisations</h2>
-
             <div class="realisations">
                 {% for realisation in realisations %}
                     <article>
@@ -162,7 +125,7 @@
     </section>
 
     <section>
-        <img class="background" src="/images/sunset.jpg">
+        <img class="background" src="/images/code.jpg">
         <div class="background overlay"></div>
 
         <div class="section-inner">
@@ -176,7 +139,7 @@
                 </div>
 
                 <div class="column">
-                    <!-- TODO contact form -->
+                    {{ form(contactForm) }}
                 </div>
             </div>
         </div>

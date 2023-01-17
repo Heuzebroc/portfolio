@@ -31,13 +31,20 @@ em {
 a {
     text-decoration: none;
     text-shadow: none;
+    color:$color-highlight;
+    transition: 0.3s;
+
+    &:hover {
+        color:$gradient-2;
+        transition: 0.3s;
+    }
 }
 
 section {
     .background {
         position: absolute;
         width: 100%;
-        height: 100vh;
+        height: 100%;
         object-position: center;
         object-fit: cover;
         z-index: -5;
@@ -68,10 +75,10 @@ section {
                 align-items: center;
                 justify-content: center;
             }
-        }
 
-        h2 {
-            text-align: left;
+            h2 {
+                text-align: left;
+            }
         }
     }
 }
@@ -91,19 +98,9 @@ header {
 a.download {
     display: inline-block;
     margin-top: 2rem;
-    background: linear-gradient(to left, $gradient-1, $gradient-2);
     padding: 0.8rem 1.6rem;
-    color: $color-text;
-    text-shadow: none;
-    box-shadow: -5px -5px $color-shadow;
-    transition: 0.3s;
     text-transform: uppercase;
-
-    &:hover {
-        transition: 0.3s;
-        box-shadow: 5px 5px $color-highlight;
-        color: $color-highlight;
-    }
+    @include gradient-squares;
 }
 
 /* Typing animation */
@@ -134,20 +131,11 @@ h3 {
 
     article {
         font-size: 0.8rem;
-        background: linear-gradient(to left, $gradient-1, $gradient-2);
-        text-shadow: none;
-        box-shadow: -5px -5px $color-shadow;
-        transition: 0.3s;
         padding: 1rem;
         text-align: center;
         margin: 5px;
         flex: auto;
-
-        &:hover {
-            transition: 0.3s;
-            box-shadow: 5px 5px $color-highlight;
-            color: $color-highlight;
-        }
+        @include gradient-squares;
     }
 }
 
@@ -194,32 +182,28 @@ h3 {
     }
 }
 
-footer {
-    margin-left: 7rem;
-    margin-bottom: 2rem;
-    position: absolute;
-    bottom: 0;
-    font-size: 1.2em;
+/*======================= CONTACT =======================*/
+form {
+    > div > div {
+        margin-bottom: 1rem;
+    }
 
-    a {
-        display: inline-block;
-        margin-right: 4rem;
+    input, textarea {
+        display: block;
+        border-radius: 0;
+        height: 2rem;
+        width: 20rem;
+    }
+    textarea {
+        height: 6rem;
+    }
+    label {
+        display: block;
+    }
+    button {
+        margin-top: 1rem;
+        padding: 0.8rem 1.6rem;
         text-transform: uppercase;
-        color: $color-text;
-        font-weight: bold;
-        transition: 0.3s;
-
-        &:before {
-            background: linear-gradient(to left, $gradient-1, $gradient-2);
-            opacity: 0;
-        }
-
-        &:hover {
-            transition: 0.3s;
-            &:before {
-                transition: 0.3s;
-                opacity: 1;
-            }
-        }
+        @include gradient-squares;
     }
 }
