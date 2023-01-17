@@ -37,6 +37,7 @@ class RealisationType extends AbstractType
             ->add('downloadWeight')
             ->add('technologyText')
             ->add('mainText')
+            ->add('features')
             ->add('technologies', EntityType::class, [
                 'class' => Technology::class,
                 'choice_label' => 'name',

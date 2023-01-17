@@ -69,6 +69,11 @@ class Realisation
      */
     private $mainText;
 
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $features;
+
     public function __construct()
     {
         $this->screenshots = new ArrayCollection();
@@ -245,6 +250,18 @@ class Realisation
     public function setMainText(string $mainText): self
     {
         $this->mainText = $mainText;
+
+        return $this;
+    }
+
+    public function getFeatures(): ?string
+    {
+        return $this->features;
+    }
+
+    public function setFeatures(string $features): self
+    {
+        $this->features = $features;
 
         return $this;
     }

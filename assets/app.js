@@ -9,5 +9,5 @@ require('bootstrap');
 import "bootstrap";
 
 import './js/general';
-import './js/typing-animation';
+import './js/entrance-animation';
 import './js/clock';

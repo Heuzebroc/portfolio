@@ -1,25 +1,25 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    {% include "navbar.html.twig" %}
+
     <section>
         <img class="background" src="/images/code.jpg">
         <div class="background overlay"></div>
 
         <div class="section-inner columns">
-            <div class="column">
-                <header>
+            <div class="column entrance entrance-left entrance-immediate">
+                <header class="entrance-skip">
                     <h1>Hugo Heuzebroc</h1>
                     <p>Développeur full-stack</p>
                 </header>
 
-                <div id="animation-first-paragraph">
-                    <p><em>Bonjour, je m'appelle Hugo !</em> J'ai 23 ans, j'habite dans l'Oise et je suis passionné d'informatique. Dans le cadre de mes études, de mon travail ou simplement pour mon plaisir, j'ai développé des site web, des applications métier, des API, des jeux vidéo et des systèmes d'exploitation. Possesseur d'un BTS Services informatiques aux organisations et d'une licence informatique générale, je suis habitué à travailler en équipe et en méthode agile.</p>
+                <p><em>Bonjour, je m'appelle Hugo !</em> J'ai 23 ans, j'habite dans l'Oise et je suis passionné d'informatique. Dans le cadre de mes études, de mon travail ou simplement pour mon plaisir, j'ai développé des site web, des applications métier, des API, des jeux vidéo et des systèmes d'exploitation. Possesseur d'un BTS Services informatiques aux organisations et d'une licence informatique générale, je suis habitué à travailler en équipe et en méthode agile.</p>
 
-                    <a class="download" href="cv.pdf" download>Télécharger mon CV</a>
-                </div>
+                <p><a class="download" href="cv.pdf" download>Télécharger mon CV</a></p>
             </div>
 
-            <div class="column">
+            <div class="column entrance entrance-right entrance-immediate">
                 {% include "carousel.html.twig" with {realisations: realisations} %}
             </div>
         </div>
@@ -30,7 +30,7 @@
         <div class="background overlay"></div>
 
         <div class="section-inner columns">
-            <div class="column">
+            <div class="column entrance entrance-left">
                 <h2>Compétences</h2>
 
                 <p>Je m'entraîne en réalisant des projets personnels utilisant mes compétences. Parfois, ces projets font appel à mes connaissances dans d'autres disciplines, comme les mathématiques ou la musique.</p>
@@ -38,37 +38,50 @@
                 <p>Je m'exerce également sur le site compétitif <a href="https://cssbattle.dev/player/reyas" target="_blank">CSSbattle</a>, où j'ai atteint le top 100 mondial pour plusieurs exercices.</p>
             </div>
 
-            <div class="column">
+            <div class="column entrance entrance-right">
                 <h3>Langages & frameworks</h3>
 
-                <div class="skills">
-                    <article><h4>Drupal 10</h4>CMS</article>
-
-                    <article><h4>Javascript ES7</h4>Langage web</article>
-
-                    <article><h4>Symfony 6</h4>Framework</article>
-
-                    <article><h4>Wordpress 6</h4>CMS</article>
-
-                    <article><h4>Python</h4>CMS</article>
-
-                    <article><h4>C#</h4>Langage logiciel</article>
-
-                    <article><h4>Java</h4>Langage logiciel</article>
-
-                    <article><h4>Assembleur</h4>Langage logiciel</article>
+                <div class="skills entrance-skip">
+                    <article>
+                        <div><h4>Drupal 10</h4>CMS</div>
+                    </article>
+                    <article>
+                        <div><h4>Javascript ES7</h4>Langage web</div>
+                    </article>
+                    <article>
+                        <div><h4>Symfony 6</h4>Framework</div>
+                    </article>
+                    <article>
+                        <div><h4>Wordpress 6</h4>CMS</div>
+                    </article>
+                    <article>
+                        <div><h4>Python</h4>CMS</div>
+                    </article>
+                    <article>
+                        <div><h4>C#</h4>Langage logiciel</div>
+                    </article>
+                    <article>
+                        <div><h4>Java</h4>Langage logiciel</div>
+                    </article>
+                    <article>
+                        <div><h4>Assembleur</h4>Langage logiciel</div>
+                    </article>
                 </div>
 
                 <h3>Logiciels & OS</h3>
 
-                <div class="skills">
-                    <article><h4>Redmine</h4>Bugtracker</article>
-
-                    <article><h4>Git</h4>Versionnement</article>
-
-                    <article><h4>Systèmes Linux</h4>OS</article>
-
-                    <article><h4>PHPstorm</h4>IDE</article>
+                <div class="skills entrance-skip">
+                    <article>
+                        <div><h4>Redmine</h4>Bugtracker</div></article>
+                    <article>
+                        <div><h4>Git</h4>Versionnement</div>
+                    </article>
+                    <article>
+                        <div><h4>Systèmes Linux</h4>OS</div>
+                    </article>
+                    <article>
+                        <div><h4>PHPstorm</h4>IDE</div>
+                    </article>
                 </div>
             </div>
         </div>
@@ -79,11 +92,11 @@
         <div class="background overlay"></div>
 
         <div class="section-inner">
-            <h2>Mon parcours</h2>
+            <h2 class="entrance entrance-center entrance-standalone">Mon parcours</h2>
 
             <div class="columns">
                 <div class="column">
-                    <div class="dotted-titles">
+                    <div class="dotted-titles entrance entrance-left">
                         <h3><em>2018-2020</em>BTS Services informatiques aux organisations</h3>
                         <p>BTS SIO option SLAM (solutions logicielles et applications métier) au lycée Saint-Vincent de Senlis</p>
 
@@ -98,7 +111,7 @@
                     </div>
                 </div>
 
-                <div class="column column-centered">
+                <div class="column column-centered entrance entrance-right">
                     {% include 'clock.html.twig' %}
                 </div>
             </div>
@@ -110,8 +123,8 @@
         <div class="background overlay"></div>
 
         <div class="section-inner">
-            <h2>Réalisations</h2>
-            <div class="realisations">
+            <h2 class="entrance entrance-center entrance-standalone">Réalisations</h2>
+            <div class="realisations entrance entrance-center">
                 {% for realisation in realisations %}
                     <article>
                         <img src="images/{{ realisation.introImageFileName }}">
@@ -129,16 +142,16 @@
         <div class="background overlay"></div>
 
         <div class="section-inner">
-            <h2>Me contacter</h2>
-
             <div class="columns">
-                <div class="column">
-                    <div class="dotted-titles">
+                <div class="column entrance entrance-left">
+                    <h2>Me contacter</h2>
+
+                    <div class="dotted-titles entrance-skip">
                         <p><em>Email</em>hugo.heuzebroc.oise@gmail.com - <a href="mailto:hugo.heuzebroc.oise@gmail.com" target="_blank">M'envoyer un mail</a></p>
                     </div>
                 </div>
 
-                <div class="column column-centered">
+                <div class="column column-centered entrance entrance-right">
                     {{ form(contactForm) }}
                 </div>
             </div>

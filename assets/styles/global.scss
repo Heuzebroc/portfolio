@@ -43,6 +43,10 @@ a {
 }
 
 section {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+
     .background {
         position: absolute;
         width: 100%;
@@ -56,9 +60,6 @@ section {
             opacity: 0.7;
         }
     }
-
-    min-height: 100vh;
-    position: relative;
 
     .section-inner {
         padding: 6rem;
@@ -104,10 +105,11 @@ header {
 }
 
 a.download {
-    display: inline-block;
-    margin-top: 2rem;
     padding: 0.8rem 1.6rem;
     text-transform: uppercase;
+    display: inline-block;
+    margin-top: 2rem;
+    animation: none;
     @include gradient-squares;
 }
 
@@ -139,19 +141,22 @@ h3 {
 
     article {
         font-size: 0.8rem;
-        padding: 1rem;
         text-align: center;
         margin: 5px;
         flex: auto;
-        @include gradient-squares;
+
+        > div {
+            @include gradient-squares;
+            padding: 1rem;
+        }
     }
 }
 
 /*======================= CURSUS =======================*/
 .dotted-titles {
-    transform: translateX(3rem);
-    border-left: 1px solid $color-text;
     padding-left: 0.5rem;
+    margin-left: 3rem;
+    border-left: 1px solid $color-text;
     margin-top: 2.5rem;
 
     h3 {
@@ -184,8 +189,8 @@ h3 {
     justify-content: space-around;
 
     img {
-        width: 20rem;
-        height: 15rem;
+        width: 16rem;
+        height: 10rem;
         object-fit: cover;
     }
 }

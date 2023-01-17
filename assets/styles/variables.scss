@@ -16,6 +16,6 @@ $color-text: #fff;
   &:hover {
     transition: 0.3s;
     box-shadow: 5px 5px $color-highlight;
-    color: $color-highlight;
+    color: $color-highlight !important;
   }
 }
