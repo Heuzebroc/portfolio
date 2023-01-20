@@ -13,11 +13,13 @@
 
   &.entrance-center {
     > *, > .entrance-skip > *, &.entrance-standalone {
-      transform:scale(0) translateY(10vw);
+      transform:translateY(5vh);
+      opacity: 0;
     }
   }
 
   > .entrance-skip {
     transform: none;
+    opacity: 1;
   }
 }

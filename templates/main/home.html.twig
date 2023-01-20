@@ -1,9 +1,14 @@
 {% extends 'base.html.twig' %}
 
+{% block bodydata %}
+    data-bs-spy="scroll"
+    data-bs-target="#mainnav"
+{% endblock %}
+
 {% block body %}
     {% include "navbar.html.twig" %}
 
-    <section>
+    <section id="home">
         <img class="background" src="/images/code.jpg">
         <div class="background overlay"></div>
 
@@ -25,17 +30,20 @@
         </div>
     </section>
 
-    <section>
+    <section id="skills">
         <img class="background" src="/images/sunset.jpg">
         <div class="background overlay"></div>
 
         <div class="section-inner columns">
-            <div class="column entrance entrance-left">
+            <div class="column entrance entrance-left skills-text">
                 <h2>Compétences</h2>
 
                 <p>Je m'entraîne en réalisant des projets personnels utilisant mes compétences. Parfois, ces projets font appel à mes connaissances dans d'autres disciplines, comme les mathématiques ou la musique.</p>
 
                 <p>Je m'exerce également sur le site compétitif <a href="https://cssbattle.dev/player/reyas" target="_blank">CSSbattle</a>, où j'ai atteint le top 100 mondial pour plusieurs exercices.</p>
+
+                <article><h4><a href="https://www.etsglobal.org/fr/fr/programme/tests-toeic" target="_blank">TOEIC</a></h4>Score : 923</article>
+                <article><h4><a href="https://www.certificat-voltaire.fr/score-certificat/" target="_blank">Certification Voltaire</a></h4>Score : 945</article>
             </div>
 
             <div class="column entrance entrance-right">
@@ -46,16 +54,13 @@
                         <div><h4>Drupal 10</h4>CMS</div>
                     </article>
                     <article>
-                        <div><h4>Javascript ES7</h4>Langage web</div>
-                    </article>
-                    <article>
                         <div><h4>Symfony 6</h4>Framework</div>
                     </article>
                     <article>
                         <div><h4>Wordpress 6</h4>CMS</div>
                     </article>
                     <article>
-                        <div><h4>Python</h4>CMS</div>
+                        <div><h4>Javascript ES7</h4>Langage web</div>
                     </article>
                     <article>
                         <div><h4>C#</h4>Langage logiciel</div>
@@ -65,6 +70,9 @@
                     </article>
                     <article>
                         <div><h4>Assembleur</h4>Langage logiciel</div>
+                    </article>
+                    <article>
+                        <div><h4>Python</h4>Langage logiciel</div>
                     </article>
                 </div>
 
@@ -87,7 +95,7 @@
         </div>
     </section>
 
-    <section>
+    <section id="cursus">
         <img class="background" src="/images/code.jpg">
         <div class="background overlay"></div>
 
@@ -101,13 +109,19 @@
                         <p>BTS SIO option SLAM (solutions logicielles et applications métier) au lycée Saint-Vincent de Senlis</p>
 
                         <h3><em>Jan - Fév 2020</em>Stage de deux mois au sein de l'agence web <a href="https://nodevo.com">Nodevo</a></h3>
-                        <p>Travail en équipe, utilisation de la méthode agile, initiation au rôle de coordinateur technique (CT).</p>
+                        <p>Travail en équipe, utilisation de la méthode agile, initiation au rôle de coordinateur technique (CT)</p>
 
                         <h3><em>2020-2021</em>Licence informatique générale</h3>
-                        <p>Licence informatique générale en alternance au lycée Saint-Vincent de Senlis. Enseignement réalisé par des professionels.</p>
+                        <p>Licence informatique générale en alternance au lycée Saint-Vincent de Senlis. Enseignement réalisé par des professionels</p>
 
                         <h3><em>2020-2021</em>Alternance au sein de l'agence web <a href="https://nodevo.com">Nodevo</a></h3>
                         <p>Alternance d'une durée d'un an en tant que développeur full-stack dans l'agence web Nodevo à Chantilly</p>
+
+                        <h3><em>2022</em>Auto-formation Angular, React</h3>
+                        <p></p>
+
+                        <h3><em>2022</em>Réalisation de projets personnels</h3>
+                        <p>Forum d'écriture collaborative</p>
                     </div>
                 </div>
 
@@ -118,7 +132,7 @@
         </div>
     </section>
 
-    <section>
+    <section id="realisations">
         <img class="background" src="/images/sunset.jpg">
         <div class="background overlay"></div>
 
@@ -137,7 +151,7 @@
         </div>
     </section>
 
-    <section>
+    <section id="contact">
         <img class="background" src="/images/code.jpg">
         <div class="background overlay"></div>
 
@@ -148,13 +162,20 @@
 
                     <div class="dotted-titles entrance-skip">
                         <p><em>Email</em>hugo.heuzebroc.oise@gmail.com - <a href="mailto:hugo.heuzebroc.oise@gmail.com" target="_blank">M'envoyer un mail</a></p>
+                        <p><em>Tél.</em>06 95 78 87 14</p>
                     </div>
                 </div>
 
-                <div class="column column-centered entrance entrance-right">
+                <div class="column column-centered">
                     {{ form(contactForm) }}
                 </div>
             </div>
         </div>
     </section>
+
+    <footer id="licensing">
+        <p>© Hugo Heuzebroc 2023</p>
+        <p>Site et thème par Hugo Heuzebroc. Site réalisé avec Symfony</p>
+        <p>Images utilisées :</p>
+    </footer>
 {% endblock %}
