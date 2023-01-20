@@ -72,6 +72,15 @@ section {
         margin: 0 auto;
     }
 
+    .text-columns {
+        columns: 2;
+        column-gap: 5rem;
+
+        h2 {
+            text-align: left;
+        }
+    }
+
     .columns {
         display: flex;
         flex-wrap: wrap;
@@ -150,7 +159,7 @@ article {
     }
 }
 
-.skills {
+.technologies {
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 30px;
@@ -252,11 +261,11 @@ form {
     bottom: 0;
     z-index: 100;
     width: 100%;
-    padding-bottom: 0.5rem;
 
     .nav {
         transform: translateY(8vh);
         transition: 1s ease-out 1.4s;
+        margin-bottom: 0.5rem;
     }
 
     .nav-link, a {

@@ -1,23 +1,9 @@
 <nav id="mainnav" class="navbar">
     <ul class="nav container">
-        <li class="nav-item">
-            <a class="nav-link" href="#home">Accueil</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#skills">Compétences</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#cursus">Mon parcours</a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link" href="#realisations">Réalisations</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#contact">Me contacter</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#licensing">Info & licence</a>
-        </li>
+        {% for item in items %}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ item.link }}">{{ item.label }}</a>
+            </li>
+        {% endfor %}
     </ul>
 </nav>

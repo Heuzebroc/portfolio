@@ -1,10 +1,23 @@
+{#
+    Simple customizable carousel - Hugo Heuzebroc
+    VARIABLES:
+    - entries: the array that contains the data
+    - image: the attribute that contains the image file name
+    - title (optional): the attribute that contains the image subtitle.
+    - description: the attribute that contains the image description
+#}
+
 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
-        {% for realisation in realisations %}
+        {% for item in entries %}
             <div class="carousel-item {{ loop.first? "active":"" }}">
-                <img src="images/{{ realisation.introImageFileName }}" class="d-block w-100" alt="...">
-                <h3>{{ realisation.title }}</h3>
-                <p>{{ realisation.intro }}</p>
+                <img src="/images/{{ attribute(item, image) }}"
+                     class="d-block w-100"
+                     alt="{{ attribute(item, description) }}"
+                >
+
+                {% if title is defined %}<h3>{{ attribute(item, title) }}</h3>{% endif %}
+                <p>{{ attribute(item, description) }}</p>
             </div>
         {% endfor %}
     </div>

@@ -29,10 +29,14 @@ class Screenshot
     private $realisation;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Realisation::class, inversedBy="supImages")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\Column(type="boolean")
      */
-    private $realisationSup;
+    private $supplement;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $description;
 
     public function getId(): ?int
     {
@@ -63,14 +67,26 @@ class Screenshot
         return $this;
     }
 
-    public function getRealisationSup(): ?Realisation
+    public function getSupplement(): ?bool
     {
-        return $this->realisationSup;
+        return $this->supplement;
     }
 
-    public function setRealisationSup(?Realisation $realisationSup): self
+    public function setSupplement(bool $supplement): self
     {
-        $this->realisationSup = $realisationSup;
+        $this->supplement = $supplement;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): self
+    {
+        $this->description = $description;
 
         return $this;
     }

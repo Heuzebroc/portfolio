@@ -6,14 +6,23 @@
 {% endblock %}
 
 {% block body %}
-    {% include "navbar.html.twig" %}
+    {% include "navbar.html.twig" with {
+        items: [
+            {"link": "#home", "label": "Accueil"},
+            {"link": "#skills", "label": "Compétences"},
+            {"link": "#cursus", "label": "Mon parcours"},
+            {"link": "#realisations", "label": "Réalisations"},
+            {"link": "#contact", "label": "Me contacter"},
+            {"link": "#licensing", "label": "Infos & licence"},
+        ]
+    }%}
 
     <section id="home">
         <img class="background" src="/images/code.jpg">
         <div class="background overlay"></div>
 
         <div class="section-inner columns">
-            <div class="column entrance entrance-left entrance-immediate">
+            <div class="column entrance entrance-left">
                 <header class="entrance-skip">
                     <h1>Hugo Heuzebroc</h1>
                     <p>Développeur full-stack</p>
@@ -24,8 +33,8 @@
                 <p><a class="download" href="cv.pdf" download>Télécharger mon CV</a></p>
             </div>
 
-            <div class="column entrance entrance-right entrance-immediate">
-                {% include "carousel.html.twig" with {realisations: realisations} %}
+            <div class="column entrance entrance-right">
+                {% include "carousel.html.twig" with {entries: realisations, title: "title", description: "intro", image: "introImageFilename"} %}
             </div>
         </div>
     </section>
@@ -49,7 +58,7 @@
             <div class="column entrance entrance-right">
                 <h3>Langages & frameworks</h3>
 
-                <div class="skills entrance-skip">
+                <div class="technologies entrance-skip">
                     <article>
                         <div><h4>Drupal 10</h4>CMS</div>
                     </article>
@@ -61,6 +70,12 @@
                     </article>
                     <article>
                         <div><h4>Javascript ES7</h4>Langage web</div>
+                    </article>
+                    <article>
+                        <div><h4>HTML 5, CSS 3</h4>Langage web</div>
+                    </article>
+                    <article>
+                        <div><h4>PHP 8</h4>Langage web</div>
                     </article>
                     <article>
                         <div><h4>C#</h4>Langage logiciel</div>
@@ -78,7 +93,7 @@
 
                 <h3>Logiciels & OS</h3>
 
-                <div class="skills entrance-skip">
+                <div class="technologies entrance-skip">
                     <article>
                         <div><h4>Redmine</h4>Bugtracker</div></article>
                     <article>
@@ -121,7 +136,7 @@
                         <p></p>
 
                         <h3><em>2022</em>Réalisation de projets personnels</h3>
-                        <p>Forum d'écriture collaborative</p>
+                        <p>Forum d'écriture collaborative, site personnel</p>
                     </div>
                 </div>
 

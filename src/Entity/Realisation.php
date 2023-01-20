@@ -35,34 +35,14 @@ class Realisation
     private $introImageFilename;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $downloadLink;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $downloadWeight;
-
-    /**
      * @ORM\OneToMany(targetEntity=Screenshot::class, mappedBy="realisation", orphanRemoval=true)
      */
     private $screenshots;
 
     /**
-     * @ORM\OneToMany(targetEntity=Screenshot::class, mappedBy="realisationSup", orphanRemoval=true)
-     */
-    private $supImages;
-
-    /**
      * @ORM\ManyToMany(targetEntity=Technology::class, inversedBy="realisations")
      */
     private $technologies;
-
-    /**
-     * @ORM\Column(type="text")
-     */
-    private $technologyText;
 
     /**
      * @ORM\Column(type="text")
@@ -74,11 +54,26 @@ class Realisation
      */
     private $features;
 
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $introLong;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Link::class, mappedBy="realisation")
+     */
+    private $links;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $date;
+
     public function __construct()
     {
         $this->screenshots = new ArrayCollection();
-        $this->supImages = new ArrayCollection();
         $this->technologies = new ArrayCollection();
+        $this->links = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -122,36 +117,22 @@ class Realisation
         return $this;
     }
 
-    public function getDownloadLink(): ?string
-    {
-        return $this->downloadLink;
-    }
-
-    public function setDownloadLink(string $downloadLink): self
-    {
-        $this->downloadLink = $downloadLink;
-
-        return $this;
-    }
-
-    public function getDownloadWeight(): ?string
-    {
-        return $this->downloadWeight;
-    }
-
-    public function setDownloadWeight(?string $downloadWeight): self
-    {
-        $this->downloadWeight = $downloadWeight;
-
-        return $this;
-    }
-
     /**
      * @return Collection|Screenshot[]
      */
     public function getScreenshots(): Collection
     {
         return $this->screenshots;
+    }
+
+    /**
+     * @return Collection|Screenshot[]
+     */
+    public function getCarouselScreenshots(): Collection
+    {
+        return new ArrayCollection(
+            array_filter($this->screenshots->toArray(), function($screenshot){ return !$screenshot->getSupplement();})
+        );
     }
 
     public function addScreenshot(Screenshot $screenshot): self
@@ -170,36 +151,6 @@ class Realisation
             // set the owning side to null (unless already changed)
             if ($screenshot->getRealisation() === $this) {
                 $screenshot->setRealisation(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Screenshot[]
-     */
-    public function getSupImages(): Collection
-    {
-        return $this->supImages;
-    }
-
-    public function addSupImage(Screenshot $supImage): self
-    {
-        if (!$this->supImages->contains($supImage)) {
-            $this->supImages[] = $supImage;
-            $supImage->setRealisationSup($this);
-        }
-
-        return $this;
-    }
-
-    public function removeSupImage(Screenshot $supImage): self
-    {
-        if ($this->supImages->removeElement($supImage)) {
-            // set the owning side to null (unless already changed)
-            if ($supImage->getRealisationSup() === $this) {
-                $supImage->setRealisationSup(null);
             }
         }
 
@@ -230,18 +181,6 @@ class Realisation
         return $this;
     }
 
-    public function getTechnologyText(): ?string
-    {
-        return $this->technologyText;
-    }
-
-    public function setTechnologyText(string $technologyText): self
-    {
-        $this->technologyText = $technologyText;
-
-        return $this;
-    }
-
     public function getMainText(): ?string
     {
         return $this->mainText;
@@ -262,6 +201,60 @@ class Realisation
     public function setFeatures(string $features): self
     {
         $this->features = $features;
+
+        return $this;
+    }
+
+    public function getIntroLong(): ?string
+    {
+        return $this->introLong;
+    }
+
+    public function setIntroLong(string $introLong): self
+    {
+        $this->introLong = $introLong;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Link[]
+     */
+    public function getLinks(): Collection
+    {
+        return $this->links;
+    }
+
+    public function addLink(Link $link): self
+    {
+        if (!$this->links->contains($link)) {
+            $this->links[] = $link;
+            $link->setRealisation($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLink(Link $link): self
+    {
+        if ($this->links->removeElement($link)) {
+            // set the owning side to null (unless already changed)
+            if ($link->getRealisation() === $this) {
+                $link->setRealisation(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getDate(): ?string
+    {
+        return $this->date;
+    }
+
+    public function setDate(string $date): self
+    {
+        $this->date = $date;
 
         return $this;
     }

@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <section>
+        <img class="background" src="/images/code.jpg">
+        <div class="background overlay"></div>
+
+        <div class="section-inner">
+            <h2>Réalisation : {{ realisation.title }}</h2>
+
+            <div class="columns">
+                <div class="column">
+                    <h4>Liens du projet</h4>
+
+                    <div class="dotted-titles">
+                        {% for link in realisation.links %}
+                            <h3>{% if link.weight %}<em>{{ link.weight }}</em>{% endif %}{{ link.label }}</h3>
+                            <p>{{ link.url }} - <a href="{{ path("admin_edit_realisation", {id: realisation.id}) }}">Modifier</a></p>
+                        {% endfor %}
+                    </div>
+
+                    <a class="download" href="{{ path("admin_add_link", {realisationId: realisation.id}) }}">+ Ajouter</a>
+                </div>
+
+                <div class="column">
+                    <h4>Images du projet</h4>
+
+                    <div class="dotted-titles">
+                        {% for screenshot in realisation.screenshots %}
+                            <h3>{% if screenshot.supplement %}<em>Sup.</em>{% endif %}{{ screenshot.description }}</h3>
+                            <p>{{ screenshot.imageFilename }} - <a href="{{ path("admin_edit_realisation", {id: realisation.id}) }}">Modifier</a></p>
+                        {% endfor %}
+                    </div>
+
+                    <a class="download" href="{{ path("admin_add_screenshot", {realisationId: realisation.id}) }}">+ Ajouter</a>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

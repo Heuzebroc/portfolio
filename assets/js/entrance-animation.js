@@ -1,5 +1,4 @@
 const toAnimate = document.querySelectorAll(".entrance");
-const toAnimateImmediately = document.querySelectorAll(".entrance-immediate");
 
 const entrance = element => {
     let delay = 0;
@@ -16,19 +15,19 @@ const entrance = element => {
     });
 }
 
-//for entrances that need to be animated without scrolling first
-setTimeout(() => toAnimateImmediately.forEach(element => {
-    entrance(element);
-}), 100);
+let currentScroll = 0;
 
-let currentScroll = toAnimateImmediately.length;
-
-//revealing elements on scroll
-document.addEventListener("scroll", e => {
+const scrollListener = e => {
     toAnimate.forEach((element, index) => {
         if (element.getBoundingClientRect().y < 500 && index === currentScroll) {
             entrance(element);
             currentScroll++;
         }
     });
-});
+};
+
+//revealing elements on scroll
+document.addEventListener("scroll", scrollListener);
+
+//revealing the top of the page
+scrollListener(0);
