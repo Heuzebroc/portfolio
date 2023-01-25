@@ -1,0 +1,25 @@
+.entrance {
+  &.entrance-left {
+    > *, > .entrance-skip > *, &.entrance-standalone {
+      transform:skew(-40deg, 20deg) translateX(-70vw);
+    }
+  }
+
+  &.entrance-right {
+    > *, > .entrance-skip > *, &.entrance-standalone {
+      transform:skew(40deg, -20deg) translateX(70vw);
+    }
+  }
+
+  &.entrance-center {
+    > *, > .entrance-skip > *, &.entrance-standalone {
+      transform:translateY(5vh);
+      opacity: 0;
+    }
+  }
+
+  > .entrance-skip, &.entrance-standalone > * {
+    transform: none;
+    opacity: 1;
+  }
+}

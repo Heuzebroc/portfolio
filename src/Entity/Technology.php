@@ -34,6 +34,11 @@ class Technology
      */
     private $realisations;
 
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $subtitle;
+
     public function __construct()
     {
         $this->realisations = new ArrayCollection();
@@ -91,6 +96,18 @@ class Technology
         if ($this->realisations->removeElement($realisation)) {
             $realisation->removeTechnology($this);
         }
+
+        return $this;
+    }
+
+    public function getSubtitle(): ?string
+    {
+        return $this->subtitle;
+    }
+
+    public function setSubtitle(?string $subtitle): self
+    {
+        $this->subtitle = $subtitle;
 
         return $this;
     }

@@ -3,12 +3,13 @@
 body {
     font-family: 'Lato', sans-serif;
     color: $color-text;
+    background: $color-overlay;
 }
 * {
     margin: 0;
     padding: 0;
     font-weight: 400;
-    text-shadow: 0 0 5px black;
+    text-shadow: 0 0 3px $color-overlay;
 }
 
 h2 {
@@ -30,29 +31,54 @@ em {
 }
 a {
     text-decoration: none;
-    text-shadow: none;
+    color: $color-highlight;
+
+    &:hover {
+        animation: 3s linear infinite color-change;
+    }
+}
+@keyframes color-change {
+    0% {color: $gradient-1;}
+    50% {color: $gradient-2;}
+    100% {color: $gradient-1;}
 }
 
 section {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+
     .background {
         position: absolute;
         width: 100%;
-        height: 100vh;
+        height: 100%;
         object-position: center;
         object-fit: cover;
         z-index: -5;
 
         &.overlay {
-            background-color: black;
+            background-color: $color-overlay;
             opacity: 0.7;
         }
     }
 
-    min-height: 100vh;
-    position: relative;
-
     .section-inner {
         padding: 6rem;
+    }
+
+    .section-inner-narrow {
+        width: 50%;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .text-columns {
+        columns: 2;
+        column-gap: 5rem;
+
+        h2 {
+            text-align: left;
+        }
     }
 
     .columns {
@@ -62,16 +88,20 @@ section {
 
         .column {
             width: 45%;
+            min-width: 400px;
 
-            &.column-centered {
+            &.column-justified {
                 display: flex;
                 align-items: center;
                 justify-content: center;
             }
-        }
+            &.column-centered {
+                text-align: center;
+            }
 
-        h2 {
-            text-align: left;
+            h2 {
+                text-align: left;
+            }
         }
     }
 }
@@ -89,30 +119,13 @@ header {
 }
 
 a.download {
+    padding: 0.8rem 1.6rem;
+    text-transform: uppercase;
     display: inline-block;
     margin-top: 2rem;
-    background: linear-gradient(to left, $gradient-1, $gradient-2);
-    padding: 0.8rem 1.6rem;
-    color: $color-text;
-    text-shadow: none;
-    box-shadow: -5px -5px $color-shadow;
-    transition: 0.3s;
-    text-transform: uppercase;
-
-    &:hover {
-        transition: 0.3s;
-        box-shadow: 5px 5px $color-highlight;
-        color: $color-highlight;
-    }
-}
-
-/* Typing animation */
-mark {
-    background-color: $selection;
-    color: inherit;
-}
-img.highlighted {
-    /* TODO */
+    margin-right: 5px;
+    animation: none;
+    @include gradient-squares;
 }
 
 /*======================= SKILLS =======================*/
@@ -122,40 +135,47 @@ h3 {
     text-align: center;
     margin-bottom: 1.2rem;
 }
+h4 {
+    font-size: 1.1rem;
+}
+article {
+    font-size: 0.8rem;
+    text-align: center;
+}
 
-.skills {
+.skills-text article {
+    float: left;
+    border-left: 1px solid transparentize($color-text, 0.3);
+    padding: 0.5rem 1rem;
+    margin-top: 0.5rem;
+    text-align: center;
+
+    &:last-child {
+        border-right: 1px solid transparentize($color-text, 0.3);
+    }
+}
+
+.technologies {
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 30px;
 
-    h4 {
-        font-size: 1.1rem;
-    }
-
     article {
-        font-size: 0.8rem;
-        background: linear-gradient(to left, $gradient-1, $gradient-2);
-        text-shadow: none;
-        box-shadow: -5px -5px $color-shadow;
-        transition: 0.3s;
-        padding: 1rem;
-        text-align: center;
         margin: 5px;
         flex: auto;
 
-        &:hover {
-            transition: 0.3s;
-            box-shadow: 5px 5px $color-highlight;
-            color: $color-highlight;
+        > div {
+            @include gradient-squares;
+            padding: 1rem;
         }
     }
 }
 
 /*======================= CURSUS =======================*/
 .dotted-titles {
-    transform: translateX(3rem);
-    border-left: 1px solid $color-text;
     padding-left: 0.5rem;
+    margin-left: 3rem;
+    border-left: 1px solid $color-text;
     margin-top: 2.5rem;
 
     h3 {
@@ -163,13 +183,11 @@ h3 {
         text-align: left;
         margin-bottom: 0.4rem;
     }
-
     p {
         margin-bottom: 1.4rem;
         opacity: 0.9;
         position: relative;
     }
-
     em {
         font-style: normal;
         font-size: 0.9rem;
@@ -187,39 +205,125 @@ h3 {
     flex-wrap: wrap;
     justify-content: space-around;
 
+    article {
+        font-size: 1rem;
+    }
+
     img {
-        width: 300px;
-        height: 250px;
+        width: 16rem;
+        height: 10rem;
         object-fit: cover;
+        border: 1px solid $color-overlay;
+        margin-bottom: 1rem;
     }
 }
 
-footer {
-    margin-left: 7rem;
-    margin-bottom: 2rem;
-    position: absolute;
-    bottom: 0;
-    font-size: 1.2em;
+/*======================= CONTACT =======================*/
+form {
+    > div > div {
+        margin-bottom: 1rem;
+    }
 
-    a {
-        display: inline-block;
-        margin-right: 4rem;
-        text-transform: uppercase;
-        color: $color-text;
-        font-weight: bold;
+    input, textarea {
+        display: block;
+        height: 2rem;
+        width: 30rem;
+        border: none;
+        box-shadow: -5px -5px $color-shadow;
         transition: 0.3s;
 
-        &:before {
-            background: linear-gradient(to left, $gradient-1, $gradient-2);
-            opacity: 0;
-        }
-
-        &:hover {
+        &:focus {
             transition: 0.3s;
-            &:before {
-                transition: 0.3s;
-                opacity: 1;
-            }
+            box-shadow: 5px 5px $color-highlight;
         }
     }
+    textarea {
+        height: 6rem;
+    }
+    label {
+        display: block;
+        margin-bottom: 0.4rem;
+        font-weight: bold;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+    }
+    button {
+        margin-top: 0.8rem;
+        padding: 0.8rem 1.6rem;
+        text-transform: uppercase;
+        @include gradient-squares;
+    }
+}
+
+/*======================= NAVBAR =======================*/
+#mainnav {
+    position: fixed;
+    bottom: 0;
+    z-index: 100;
+    width: 100%;
+    background: linear-gradient(to bottom, transparentize($color-overlay, 1), $color-overlay);
+
+    .nav {
+        transform: translateY(8vh);
+        transition: 2s ease-in-out 1s;
+        margin-bottom: 0.5rem;
+    }
+    a {
+        color: $color-text;
+        text-transform: uppercase;
+        font-size: 1.2rem;
+    }
+    .active {
+        color: $color-highlight;
+    }
+    .nav-item {
+        animation: 10s ease-in-out infinite floating;
+    }
+    .nav-item:nth-child(even) {
+        animation: 10s ease-in-out infinite floating-reverse;
+    }
+}
+
+@keyframes floating {
+    0% {transform: translateY(-0.3rem)}
+    50% {transform: translateY(0.3rem)}
+    100% {transform: translateY(-0.3rem)}
+}
+@keyframes floating-reverse {
+    0% {transform: translateY(0.3rem)}
+    50% {transform: translateY(-0.3rem)}
+    100% {transform: translateY(0.3rem)}
+}
+
+/*======================= FOOTER =======================*/
+footer {
+    background: $color-overlay;
+    text-align: center;
+    font-size: 0.8rem;
+    padding: 2rem 0 3rem;
+
+    p {
+        margin-bottom: 0.8rem;
+    }
+}
+
+/*======================= REALISATION PAGE =======================*/
+span.tooltip, span.monospace {
+    display: inline;
+    position: relative;
+    font-size: 1rem;
+}
+
+span.tooltip {
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    cursor: help;
+}
+
+span.monospace {
+    background: transparentize($color-text, 0.8);
+    text-shadow: none;
+    font-family: Consolas, 'Lucida Console';
+    padding: 4px;
+    color: $color-text-shade;
 }

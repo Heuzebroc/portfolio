@@ -1,24 +1,76 @@
 {% extends 'base.html.twig' %}
 
+{% block bodydata %}
+    data-bs-spy="scroll"
+    data-bs-target="#mainnav"
+{% endblock %}
+
 {% block body %}
-    <section>
+    {% include "navbar.html.twig" with {
+        items: [
+            {"link": "#description", "label": "Description"},
+            {"link": "#features", "label": "Fonctionnalités"},
+            {"link": "#making", "label": "Réalisation"},
+            {"link": "/", "label": "Retour"},
+        ]
+    }%}
+
+    <section id="description">
         <img class="background" src="/images/code.jpg">
         <div class="background overlay"></div>
 
         <div class="section-inner columns">
-            <div class="column">
+            <div class="column entrance entrance-left">
                 <header>
                     <h1>{{ realisation.title }}</h1>
                 </header>
 
-                <div id="animation-first-paragraph">
-                    <p>{{ realisation.intro }}</p>
+                <p>{{ realisation.introLong }}</p>
+
+                <p>
+                {% for link in realisation.links %}
+                    {{ loop.first? "":"—" }}
+                    <a href="{{ link.url }}" target="_blank">{{ link.label }}</a> {% if link.weight %}({{ link.weight }}){% endif %}
+                {% endfor %}
+                </p>
+
+                <h3>Technologies utilisées</h3>
+                <div class="technologies entrance-skip">
+                    {% for tech in realisation.technologies %}
+                        <article>
+                            <div><h4>{{ tech.name }}</h4></div>
+                        </article>
+                    {% endfor %}
                 </div>
             </div>
 
-            <div class="column">
-
+            <div class="column entrance entrance-right">
+                {% include "carousel.html.twig" with {entries: realisation.getCarouselScreenshots, description: "description", image: "imageFilename"} %}
             </div>
         </div>
     </section>
+
+    <section id="features">
+        <img class="background" src="/images/sunset2.jpg">
+        <div class="background overlay"></div>
+
+        <div class="section-inner text-columns">
+            <h2 class="entrance entrance-standalone entrance-left">Fonctionnalités</h2>
+
+            <p class="entrance entrance-standalone entrance-center">{{ realisation.features|raw|nl2br }}</p>
+        </div>
+    </section>
+
+    <section id="making">
+        <img class="background" src="/images/code.jpg">
+        <div class="background overlay"></div>
+
+        <div class="section-inner text-columns">
+            <h2 class="entrance entrance-standalone entrance-left">Réalisation</h2>
+
+            <p class="entrance entrance-standalone entrance-center">{{ realisation.mainText|raw|nl2br }}</p>
+        </div>
+    </section>
+
+    {% include 'footer.html.twig' %}
 {% endblock %}

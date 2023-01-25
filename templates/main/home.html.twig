@@ -1,184 +1,202 @@
 {% extends 'base.html.twig' %}
 
+{% block bodydata %}
+    data-bs-spy="scroll"
+    data-bs-target="#mainnav"
+{% endblock %}
+
 {% block body %}
-    <section>
+    {% include "navbar.html.twig" with {
+        items: [
+            {"link": "#home", "label": "Accueil"},
+            {"link": "#skills", "label": "Compétences"},
+            {"link": "#cursus", "label": "Mon parcours"},
+            {"link": "#realisations", "label": "Réalisations"},
+            {"link": "#contact", "label": "Me contacter"},
+        ]
+    }%}
+
+    <section id="home">
         <img class="background" src="/images/code.jpg">
         <div class="background overlay"></div>
 
         <div class="section-inner columns">
-            <div class="column">
-                <header>
+            <div class="column entrance entrance-left">
+                <header class="entrance-skip">
                     <h1>Hugo Heuzebroc</h1>
-                    <p>Développeur full-stack</p>
+                    <p>Développeur web full-stack</p>
                 </header>
 
-                <div id="animation-first-paragraph">
-                    <p><em>Bonjour, je m'appelle Hugo !</em> J'ai 23 ans, j'habite dans l'Oise et je suis passionné de développement. Dans le cadre de mes études, de mon travail ou simplement pour mon plaisir, j'ai développé des site web, des applications métier, des API, des jeux vidéo et des systèmes d'exploitation. Possesseur d'un BTS Services informatiques aux organisations et d'une licence informatique générale, je suis habitué à travailler en équipe et en méthode agile.</p>
+                <p><em>Bonjour, je m'appelle Hugo !</em> J'ai 23 ans, j'habite dans l'Oise et je suis passionné d'informatique. Dans le cadre de mes études, de mon travail ou simplement pour mon plaisir, j'ai développé des site web, des applications métier, des API, des jeux vidéo et des systèmes d'exploitation. Possesseur d'un BTS Services informatiques aux organisations et d'une licence informatique générale du CNAM, je suis habitué à travailler en équipe et en méthode agile.</p>
 
-                    <a class="download" href="cv.pdf" download>Télécharger mon CV</a>
-                </div>
+                <p><a class="download" href="cv.pdf" download>Télécharger mon CV</a></p>
             </div>
 
-            <div class="column">
-                {% include "carousel.html.twig" with {realisations: realisations} %}
+            <div class="column entrance entrance-right column-centered">
+                <p>Quelques unes de mes réalisations :</p>
+
+                {% include "carousel.html.twig" with {
+                    entries: carouselRealisations,
+                    title: "title",
+                    description: "intro",
+                    image: "introImageFilename",
+                    link: true
+                } %}
             </div>
         </div>
     </section>
 
-    <section>
-        <img class="background" src="/images/sunset.jpg">
+    <section id="skills">
+        <img class="background" src="/images/sunset2.jpg">
         <div class="background overlay"></div>
 
         <div class="section-inner columns">
-            <div class="column">
+            <div class="column entrance entrance-left skills-text">
                 <h2>Compétences</h2>
 
-                <p></p>
+                <p>Ayant débuté la programmation au collège pour mon simple plaisir, je me suis depuis familiarisé avec un certain nombre de langages, frameworks et environnements de développement. Je suis habitué au travail en équipe et à la méthode agile, et je dispose de connaissances rudimentaires de la gestion de projet. Je m'entraîne en réalisant des projets personnels utilisant mes compétences. Parfois, ces projets font appel à mes connaissances dans d'autres disciplines comme les mathématiques ou la musique.</p>
 
-                <p>Je m'exerce également sur le site compétitif <em><a href="https://cssbattle.dev/player/reyas" target="_blank">CSSbattle</a></em>, où j'ai atteint le top 100 mondial pour plusieurs exercices.</p>
+                <p>Je m'exerce également sur le site compétitif <a href="https://cssbattle.dev/" target="_blank">CSSbattle</a>, où j'ai atteint le top 100 mondial pour plusieurs exercices.</p>
+
+                <article><h4><a href="https://www.etsglobal.org/fr/fr/programme/tests-toeic" target="_blank">TOEIC</a></h4>Score : 923</article>
+                <article><h4><a href="https://www.certificat-voltaire.fr/score-certificat/" target="_blank">Certification Voltaire</a></h4>Score : 905</article>
             </div>
 
-            <div class="column">
+            <div class="column entrance entrance-right">
                 <h3>Langages & frameworks</h3>
 
-                <div class="skills">
+                <div class="technologies entrance-skip">
                     <article>
-                        <h4>Drupal 10</h4>
-                        CMS
+                        <div><h4>Drupal 10</h4>CMS</div>
                     </article>
-
                     <article>
-                        <h4>Javascript ES7</h4>
-                        Langage web
+                        <div><h4>Symfony 6</h4>Framework</div>
                     </article>
-
                     <article>
-                        <h4>Symfony 6</h4>
-                        Framework
+                        <div><h4>Wordpress 6</h4>CMS</div>
                     </article>
-
                     <article>
-                        <h4>Wordpress 6</h4>
-                        CMS
+                        <div><h4>Javascript ES7</h4>Langage web</div>
                     </article>
-
                     <article>
-                        <h4>Python</h4>
-                        CMS
+                        <div><h4>HTML 5, CSS 3</h4>Langages web</div>
                     </article>
-
                     <article>
-                        <h4>C#</h4>
-                        Langage logiciel
+                        <div><h4>PHP 8</h4>Langage web</div>
                     </article>
-
                     <article>
-                        <h4>Java</h4>
-                        Langage logiciel
+                        <div><h4>Webpack</h4>Framework</div>
                     </article>
-
                     <article>
-                        <h4>Assembleur</h4>
-                        Langage logiciel
+                        <div><h4>C#</h4>Langage logiciel</div>
+                    </article>
+                    <article>
+                        <div><h4>Java</h4>Langage logiciel</div>
+                    </article>
+                    <article>
+                        <div><h4>Assembleur</h4>Langage logiciel</div>
+                    </article>
+                    <article>
+                        <div><h4>Python</h4>Langage logiciel</div>
                     </article>
                 </div>
 
                 <h3>Logiciels & OS</h3>
 
-                <div class="skills">
+                <div class="technologies entrance-skip">
                     <article>
-                        <h4>Redmine</h4>
-                        Bugtracker
+                        <div><h4>Redmine</h4>Bugtracker</div></article>
+                    <article>
+                        <div><h4>Git</h4>Versionnement</div>
                     </article>
-
                     <article>
-                        <h4>Git</h4>
-                        Versionnement
+                        <div><h4>Systèmes Linux</h4>OS</div>
                     </article>
-
                     <article>
-                        <h4>Systèmes Linux</h4>
-                        OS
-                    </article>
-
-                    <article>
-                        <h4>PHPstorm</h4>
-                        IDE
+                        <div><h4>PHPstorm</h4>IDE</div>
                     </article>
                 </div>
             </div>
         </div>
     </section>
 
-    <section>
+    <section id="cursus">
         <img class="background" src="/images/code.jpg">
         <div class="background overlay"></div>
 
         <div class="section-inner">
-            <h2>Mon parcours</h2>
+            <h2 class="entrance entrance-center entrance-standalone">Mon parcours</h2>
 
             <div class="columns">
                 <div class="column">
-                    <div class="dotted-titles">
+                    <div class="dotted-titles entrance entrance-left">
                         <h3><em>2018-2020</em>BTS Services informatiques aux organisations</h3>
-                        <p>BTS SIO option SLAM (solutions logicielles et applications métier) au lycée Saint-Vincent de Senlis</p>
+                        <p>BTS SIO option SLAM (solutions logicielles et applications métier) au lycée Saint-Vincent de Senlis.</p>
 
                         <h3><em>Jan - Fév 2020</em>Stage de deux mois au sein de l'agence web <a href="https://nodevo.com">Nodevo</a></h3>
-                        <p>Travail en équipe, utilisation de la méthode agile, initiation au rôle de coordinateur technique (CT).</p>
+                        <p>Travail en équipe, utilisation de la méthode agile, initiation au rôle de coordinateur technique (CT)</p>
 
-                        <h3><em>2020-2021</em>Licence informatique générale</h3>
-                        <p>Licence informatique générale en alternance au lycée Saint-Vincent de Senlis. Enseignement réalisé par des professionels.</p>
+                        <h3><em>2020-2021</em>Licence informatique générale CNAM</h3>
+                        <p>Licence informatique générale en alternance au lycée Saint-Vincent de Senlis. Enseignement réalisé par des professionnels, initiation à la gestion de projets</p>
 
                         <h3><em>2020-2021</em>Alternance au sein de l'agence web <a href="https://nodevo.com">Nodevo</a></h3>
-                        <p>Alternance d'une durée d'un an en tant que développeur full-stack dans l'agence web Nodevo à Chantilly</p>
+                        <p>Alternance d'une durée d'un an en tant que développeur full-stack à l'agence web Nodevo à Chantilly</p>
+
+                        <h3><em>2022</em>Auto-formation et mise à niveau</h3>
+                        <p>Formation à react et angular, mise à niveau symfony et PHP</p>
+
+                        <h3><em>2022-2023</em>Réalisation de projets personnels</h3>
+                        <p>Forum d'écriture collaborative, site personnel, extension de navigateur</p>
                     </div>
                 </div>
 
-                <div class="column column-centered">
+                <div class="column column-justified entrance entrance-right">
                     {% include 'clock.html.twig' %}
                 </div>
             </div>
         </div>
     </section>
 
-    <section>
-        <img class="background" src="/images/code.jpg">
+    <section id="realisations">
+        <img class="background" src="/images/sunset2.jpg">
         <div class="background overlay"></div>
 
         <div class="section-inner">
-            <h2>Réalisations</h2>
-
-            <div class="realisations">
+            <h2 class="entrance entrance-center entrance-standalone">Réalisations</h2>
+            <div class="realisations entrance entrance-center">
                 {% for realisation in realisations %}
                     <article>
                         <img src="images/{{ realisation.introImageFileName }}">
-                        <h3>{{ realisation.title }}</h3>
-                        <p>{{ realisation.intro }}</p>
-                        <a href="#">Détails</a>
+                        <h4>{{ realisation.title }}</h4>
+                        <a href="{{ path("realisation", {id: realisation.id}) }}">Voir le projet</a>
                     </article>
                 {% endfor %}
             </div>
         </div>
     </section>
 
-    <section>
-        <img class="background" src="/images/sunset.jpg">
+    <section id="contact">
+        <img class="background" src="/images/code.jpg">
         <div class="background overlay"></div>
 
         <div class="section-inner">
-            <h2>Me contacter</h2>
-
             <div class="columns">
-                <div class="column">
-                    <div class="dotted-titles">
+                <div class="column entrance entrance-left">
+                    <h2>Me contacter</h2>
+
+                    <div class="dotted-titles entrance-skip">
                         <p><em>Email</em>hugo.heuzebroc.oise@gmail.com - <a href="mailto:hugo.heuzebroc.oise@gmail.com" target="_blank">M'envoyer un mail</a></p>
+                        <p><em>Tél.</em>06 95 78 87 14</p>
+                        <p><em>LinkedIn</em><a href="https://www.linkedin.com/in/hugo-heuzebroc-38363a263/" target="_blank">Hugo Heuzebroc</a></p>
                     </div>
                 </div>
 
-                <div class="column">
-                    <!-- TODO contact form -->
+                <div class="column column-justified">
+                    {{ form(contactForm) }}
                 </div>
             </div>
         </div>
     </section>
+
+    {% include 'footer.html.twig' %}
 {% endblock %}

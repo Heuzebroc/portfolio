@@ -1,0 +1,9 @@
+<nav id="mainnav" class="navbar">
+    <ul class="nav container">
+        {% for item in items %}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ item.link }}">{{ item.label }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</nav>

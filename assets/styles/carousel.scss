@@ -1,13 +1,30 @@
 .column .carousel {
+  a.carousel-item {
+    color: $color-text;
+    transition: 0.3s;
+
+    &:hover {
+      animation: none;
+      color: $color-highlight;
+      transition: 0.3s;
+    }
+  }
+
   img {
-    max-height: 400px;
+    height: 20vw;
     object-fit: cover;
+    border: 1px solid $color-overlay;
+    margin: 0 auto;
   }
   .carousel-inner {
     text-align: center;
 
     h3 {
-      padding-top: 5px;
+      margin-top: 1rem;
+    }
+
+    p {
+      margin-top: 1rem;
     }
   }
 }
