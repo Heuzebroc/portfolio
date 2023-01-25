@@ -1,3 +1,8 @@
+/*
+Hugo Heuzebroc - 2022
+This code allows for a gradual entrance of elements on the page.
+ */
+
 const toAnimate = document.querySelectorAll(".entrance");
 
 const entrance = element => {
@@ -29,5 +34,5 @@ const scrollListener = e => {
 //revealing elements on scroll
 document.addEventListener("scroll", scrollListener);
 
-//revealing the top of the page
+//preliminary reveal before any scrolling
 scrollListener(0);

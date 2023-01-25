@@ -23,6 +23,7 @@
 /node_modules/
 /public/build/
 /public/images/
+/public/documents/
 /public/apps/
 npm-debug.log
 yarn-error.log

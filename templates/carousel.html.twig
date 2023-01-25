@@ -5,20 +5,21 @@
     - image: the attribute that contains the image file name
     - title (optional): the attribute that contains the image subtitle.
     - description: the attribute that contains the image description
+    - link (boolean): whether to link to a realisation
 #}
 
 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
         {% for item in entries %}
-            <div class="carousel-item {{ loop.first? "active":"" }}">
+            <a class="carousel-item {{ loop.first? "active":"" }}" {% if link is defined %} href="{{ path("realisation", {id: item.id})}}" {% endif %}>
                 <img src="/images/{{ attribute(item, image) }}"
-                     class="d-block w-100"
+                     class="d-block"
                      alt="{{ attribute(item, description) }}"
                 >
 
                 {% if title is defined %}<h3>{{ attribute(item, title) }}</h3>{% endif %}
                 <p>{{ attribute(item, description) }}</p>
-            </div>
+            </a>
         {% endfor %}
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">

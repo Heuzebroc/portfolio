@@ -88,11 +88,15 @@ section {
 
         .column {
             width: 45%;
+            min-width: 400px;
 
-            &.column-centered {
+            &.column-justified {
                 display: flex;
                 align-items: center;
                 justify-content: center;
+            }
+            &.column-centered {
+                text-align: center;
             }
 
             h2 {
@@ -119,17 +123,9 @@ a.download {
     text-transform: uppercase;
     display: inline-block;
     margin-top: 2rem;
+    margin-right: 5px;
     animation: none;
     @include gradient-squares;
-}
-
-/* Typing animation */
-mark {
-    background-color: $selection;
-    color: inherit;
-}
-img.highlighted {
-    /* TODO */
 }
 
 /*======================= SKILLS =======================*/
@@ -187,13 +183,11 @@ article {
         text-align: left;
         margin-bottom: 0.4rem;
     }
-
     p {
         margin-bottom: 1.4rem;
         opacity: 0.9;
         position: relative;
     }
-
     em {
         font-style: normal;
         font-size: 0.9rem;
@@ -211,10 +205,16 @@ article {
     flex-wrap: wrap;
     justify-content: space-around;
 
+    article {
+        font-size: 1rem;
+    }
+
     img {
         width: 16rem;
         height: 10rem;
         object-fit: cover;
+        border: 1px solid $color-overlay;
+        margin-bottom: 1rem;
     }
 }
 
@@ -261,40 +261,38 @@ form {
     bottom: 0;
     z-index: 100;
     width: 100%;
+    background: linear-gradient(to bottom, transparentize($color-overlay, 1), $color-overlay);
 
     .nav {
         transform: translateY(8vh);
-        transition: 1s ease-out 1.4s;
+        transition: 2s ease-in-out 1s;
         margin-bottom: 0.5rem;
     }
-
-    .nav-link, a {
+    a {
         color: $color-text;
         text-transform: uppercase;
+        font-size: 1.2rem;
     }
-
     .active {
         color: $color-highlight;
     }
-
     .nav-item {
         animation: 10s ease-in-out infinite floating;
     }
-
     .nav-item:nth-child(even) {
         animation: 10s ease-in-out infinite floating-reverse;
     }
 }
 
 @keyframes floating {
-    0% {transform: translateY(-0.4rem) rotate(2deg)}
-    50% {transform: translateY(0.4rem) rotate(-2deg)}
-    100% {transform: translateY(-0.4rem) rotate(2deg)}
+    0% {transform: translateY(-0.3rem)}
+    50% {transform: translateY(0.3rem)}
+    100% {transform: translateY(-0.3rem)}
 }
 @keyframes floating-reverse {
-    0% {transform: translateY(0.4rem) rotate(-2deg)}
-    50% {transform: translateY(-0.4rem) rotate(2deg)}
-    100% {transform: translateY(0.4rem) rotate(-2deg)}
+    0% {transform: translateY(0.3rem)}
+    50% {transform: translateY(-0.3rem)}
+    100% {transform: translateY(0.3rem)}
 }
 
 /*======================= FOOTER =======================*/
@@ -307,4 +305,25 @@ footer {
     p {
         margin-bottom: 0.8rem;
     }
+}
+
+/*======================= REALISATION PAGE =======================*/
+span.tooltip, span.monospace {
+    display: inline;
+    position: relative;
+    font-size: 1rem;
+}
+
+span.tooltip {
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    cursor: help;
+}
+
+span.monospace {
+    background: transparentize($color-text, 0.8);
+    text-shadow: none;
+    font-family: Consolas, 'Lucida Console';
+    padding: 4px;
+    color: $color-text-shade;
 }

@@ -36,23 +36,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/details/{id}", name="realisation_admin")
-     * @IsGranted("ROLE_ADMIN")
-     * @param RealisationRepository $repository
-     * @param $id
-     * @return Response
-     */
-    public function details(RealisationRepository $repository, $id): Response
-    {
-        $realisation = $repository->find($id);
-
-        return $this->render('admin/details.html.twig', [
-            'realisation' => $realisation,
-        ]);
-    }
-
-    /**
-     * @Route("/realisations/ajout", name="admin_add_realisation")
+     * @Route("admin/realisation/ajout", name="admin_add_realisation")
      * @param Request $request
      * @param EntityManagerInterface $manager
      * @param SluggerInterface $slugger
@@ -102,7 +86,23 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/realisations/modifier/{id}", name="admin_edit_realisation")
+     * @Route("admin/realisation/{id}", name="realisation_admin")
+     * @IsGranted("ROLE_ADMIN")
+     * @param RealisationRepository $repository
+     * @param $id
+     * @return Response
+     */
+    public function details(RealisationRepository $repository, $id): Response
+    {
+        $realisation = $repository->find($id);
+
+        return $this->render('admin/details.html.twig', [
+            'realisation' => $realisation,
+        ]);
+    }
+
+    /**
+     * @Route("admin/realisation/modifier/{id}", name="admin_edit_realisation")
      * @param Request $request
      * @param EntityManagerInterface $manager
      * @param SluggerInterface $slugger
@@ -154,7 +154,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/lien/ajout/{realisationId}", name="admin_add_link")
+     * @Route("admin/lien/ajout/{realisationId}", name="admin_add_link")
      * @param Request $request
      * @param EntityManagerInterface $manager
      * @param $realisationId
@@ -187,7 +187,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/screenshot/ajout/{realisationId}", name="admin_add_screenshot")
+     * @Route("admin/screenshot/ajout/{realisationId}", name="admin_add_screenshot")
      * @param Request $request
      * @param EntityManagerInterface $manager
      * @param $realisationId

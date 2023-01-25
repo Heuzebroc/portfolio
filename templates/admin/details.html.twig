@@ -1,12 +1,22 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    {% include "navbar.html.twig" with {
+        items: [
+            {"link": path("admin_edit_realisation", {id: realisation.id}), "label": "Modifier"},
+            {"link": path("realisation", {id: realisation.id}), "label": "Voir"},
+            {"link": path("admin"), "label": "Retour"},
+        ]
+    }%}
+
     <section>
         <img class="background" src="/images/code.jpg">
         <div class="background overlay"></div>
 
         <div class="section-inner">
             <h2>Réalisation : {{ realisation.title }}</h2>
+
+            <p>{{ realisation.introLong }}</p>
 
             <div class="columns">
                 <div class="column">

@@ -69,6 +69,11 @@ class Realisation
      */
     private $date;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $frontPage;
+
     public function __construct()
     {
         $this->screenshots = new ArrayCollection();
@@ -255,6 +260,18 @@ class Realisation
     public function setDate(string $date): self
     {
         $this->date = $date;
+
+        return $this;
+    }
+
+    public function getFrontPage(): ?bool
+    {
+        return $this->frontPage;
+    }
+
+    public function setFrontPage(bool $frontPage): self
+    {
+        $this->frontPage = $frontPage;
 
         return $this;
     }

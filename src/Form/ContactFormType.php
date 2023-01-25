@@ -19,7 +19,7 @@ class ContactFormType extends AbstractType
             ->add('name', TextType::class, ['label' => 'Nom'])
             ->add('website', TextType::class, ['label' => 'Site web (facultatif)'])
             ->add('mail', EmailType::class, ['label' => 'Adresse E-mail'])
-            ->add('message', TextareaType::class, ['label' => 'Votre message'])
+            ->add('message', TextareaType::class, ['label' => 'Votre message', 'help' => 'Vos données ne seront pas réutilisées ou transmises à des tiers.'])
             ->add('submit', SubmitType::class, ["label" => "Envoyer"])
         ;
     }

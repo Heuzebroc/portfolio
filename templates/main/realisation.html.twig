@@ -51,13 +51,13 @@
     </section>
 
     <section id="features">
-        <img class="background" src="/images/sunset.jpg">
+        <img class="background" src="/images/sunset2.jpg">
         <div class="background overlay"></div>
 
         <div class="section-inner text-columns">
             <h2 class="entrance entrance-standalone entrance-left">Fonctionnalités</h2>
 
-            <p class="entrance entrance-standalone entrance-center">{{ realisation.features|nl2br }}</p>
+            <p class="entrance entrance-standalone entrance-center">{{ realisation.features|raw|nl2br }}</p>
         </div>
     </section>
 
@@ -68,13 +68,9 @@
         <div class="section-inner text-columns">
             <h2 class="entrance entrance-standalone entrance-left">Réalisation</h2>
 
-            <p class="entrance entrance-standalone entrance-center">{{ realisation.mainText|nl2br }}</p>
+            <p class="entrance entrance-standalone entrance-center">{{ realisation.mainText|raw|nl2br }}</p>
         </div>
     </section>
 
-    <footer id="licensing">
-        <p>© Hugo Heuzebroc 2023</p>
-        <p>Site et thème par Hugo Heuzebroc. Site réalisé avec Symfony</p>
-        <p>Images utilisées :</p>
-    </footer>
+    {% include 'footer.html.twig' %}
 {% endblock %}

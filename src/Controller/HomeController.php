@@ -38,6 +38,7 @@ class HomeController extends AbstractController
     public function index(RealisationRepository $repository, Request $request, EntityManagerInterface $entityManager): Response
     {
         $realisations = $repository->findAll();
+        $carouselRealisations = $repository->findBy(["frontPage" => true]);
         $form = $this->createForm(ContactFormType::class, new FormMessage());
 
         $form->handleRequest($request);
@@ -52,6 +53,7 @@ class HomeController extends AbstractController
 
         return $this->render('main/home.html.twig', [
             'realisations' => $realisations,
+            'carouselRealisations' => $carouselRealisations,
             'contactForm' => $form->createView()
         ]);
     }
