@@ -17,15 +17,25 @@
       height: 0;
 
       img {
-        transform: translate(-50%, -2vh);
+        transform: translate(-50%, -0.8rem);
       }
 
       &.minute img {
-        width: 4vh;
+        width: 1.6rem;
       }
       &.hour img {
-        width: 7.5vh;
+        width: 3rem;
       }
     }
+  }
+
+  @media (max-width: $lg) {
+    width: 50vh;
+    height: 50vh;
+  }
+
+  @media (max-width: $md) {
+    width: 25vh;
+    height: 25vh;
   }
 }

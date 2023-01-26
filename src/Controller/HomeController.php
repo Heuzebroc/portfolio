@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\FormMessage;
+use App\Entity\HoneyPot;
 use App\Entity\Realisation;
 use App\Form\ContactFormType;
 use App\Repository\RealisationRepository;
@@ -43,6 +44,18 @@ class HomeController extends AbstractController
 
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()) {
+
+            //honeypot field
+            if(!$form->get('e-mail')->isEmpty()) {
+                $honeyPot = new HoneyPot();
+                $honeyPot->setAttemptDate(new \DateTime());
+
+                $entityManager->persist($honeyPot);
+                $entityManager->flush();
+
+                return $this->redirectToRoute('info', ["msgId" => self::FORM_SUBMITTED]);
+            }
+
             $message = $form->getData();
 
             $entityManager->persist($message);

@@ -13,9 +13,19 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class ContactFormType extends AbstractType
 {
+    const HONEYPOT_DEFAULT = '123email456';
+
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
+            //honeypot field
+            ->add('e-mail', TextType::class, [
+                'label' => 'Your email here',
+                'required' => false,
+                'mapped' => false,
+                'row_attr' => ['class' => 'form-secondary'],
+            ])
+
             ->add('name', TextType::class, ['label' => 'Nom'])
             ->add('website', TextType::class, ['label' => 'Site web (facultatif)'])
             ->add('mail', EmailType::class, ['label' => 'Adresse E-mail'])

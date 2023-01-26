@@ -88,7 +88,6 @@ section {
 
         .column {
             width: 45%;
-            min-width: 400px;
 
             &.column-justified {
                 display: flex;
@@ -253,6 +252,13 @@ form {
         text-transform: uppercase;
         @include gradient-squares;
     }
+
+    .form-secondary {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -100;
+    }
 }
 
 /*======================= NAVBAR =======================*/
@@ -263,10 +269,10 @@ form {
     width: 100%;
     background: linear-gradient(to bottom, transparentize($color-overlay, 1), $color-overlay);
 
-    .nav {
-        transform: translateY(8vh);
-        transition: 2s ease-in-out 1s;
-        margin-bottom: 0.5rem;
+    .navbar-nav {
+        justify-content: space-around;
+        transform: translateY(10vw);
+        transition: 2s ease-in-out 0.8s;
     }
     a {
         color: $color-text;
@@ -281,6 +287,23 @@ form {
     }
     .nav-item:nth-child(even) {
         animation: 10s ease-in-out infinite floating-reverse;
+    }
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.hamburger {
+    display: flex;
+    flex-direction: column;
+
+    span {
+        width: 2.6rem;
+        height: 0.4rem;
+        margin-bottom: 0.4rem;
+        border-radius: 0.2rem;
+        background: $color-text;
     }
 }
 

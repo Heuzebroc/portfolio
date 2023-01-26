@@ -3,4 +3,6 @@ document.querySelectorAll("#contact_form").forEach(form => {
     form.classList.add("entrance-right");
 });
 
-document.querySelector(".nav").style.transform = "none";
+document.querySelectorAll(".navbar-nav").forEach(nav => {
+    nav.style.transform = "none"
+});

@@ -15,6 +15,10 @@
     object-fit: cover;
     border: 1px solid $color-overlay;
     margin: 0 auto;
+
+    @media (max-width: $md) {
+      height: 30vw;
+    }
   }
   .carousel-inner {
     text-align: center;
