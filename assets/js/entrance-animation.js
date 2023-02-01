@@ -24,7 +24,7 @@ let currentScroll = 0;
 
 const scrollListener = e => {
     toAnimate.forEach((element, index) => {
-        if (element.getBoundingClientRect().y < 500 && index === currentScroll) {
+        if (element.getBoundingClientRect().y < window.innerHeight/2 && index === currentScroll) {
             entrance(element);
             currentScroll++;
         }

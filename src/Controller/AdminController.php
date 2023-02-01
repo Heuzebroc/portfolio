@@ -8,7 +8,11 @@ use App\Entity\Screenshot;
 use App\Form\LinkType;
 use App\Form\RealisationType;
 use App\Form\ScreenshotType;
+use App\Repository\FormMessageRepository;
+use App\Repository\HoneyPotRepository;
+use App\Repository\LinkRepository;
 use App\Repository\RealisationRepository;
+use App\Repository\ScreenshotRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
@@ -23,15 +27,21 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin", name="admin")
      * @IsGranted("ROLE_ADMIN")
-     * @param RealisationRepository $repository
+     * @param RealisationRepository $realisationRepository
+     * @param HoneyPotRepository $honeyPotRepository
+     * @param FormMessageRepository $formMessageRepository
      * @return Response
      */
-    public function index(RealisationRepository $repository): Response
+    public function index(RealisationRepository $realisationRepository, HoneyPotRepository $honeyPotRepository, FormMessageRepository $formMessageRepository): Response
     {
-        $realisations = $repository->findAll();
+        $realisations = $realisationRepository->findAll();
+        $honeyPots = $honeyPotRepository->findAll();
+        $messages = $formMessageRepository->findAll();
 
         return $this->render('admin/index.html.twig', [
             'realisations' => $realisations,
+            'messages' => $messages,
+            'honeyPots' => $honeyPots
         ]);
     }
 
@@ -233,6 +243,86 @@ class AdminController extends AbstractController
             $manager->flush();
 
             return $this->redirectToRoute("realisation_admin", ["id" => $realisationId]);
+        }
+
+        return $this->renderForm('admin/add_screenshot.html.twig', [
+            "form" => $form
+        ]);
+    }
+
+    /**
+     * @Route("admin/lien/modifier/{id}", name="admin_edit_link")
+     * @param Request $request
+     * @param EntityManagerInterface $manager
+     * @param LinkRepository $linkRepository
+     * @param $id
+     * @return Response
+     * @IsGranted("ROLE_ADMIN")
+     */
+    public function editLink(Request $request, EntityManagerInterface $manager, LinkRepository $linkRepository, $id): Response
+    {
+        $link = $linkRepository->find($id);
+        $form = $this->createForm(LinkType::class, $link);
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()) {
+            $link = $form->getData();
+            $manager->persist($link);
+            $manager->flush();
+
+            return $this->redirectToRoute("realisation_admin", ["id" => $link->getRealisation()->getId()]);
+        }
+
+        return $this->renderForm('admin/add_link.html.twig', [
+            "form" => $form
+        ]);
+    }
+
+    /**
+     * @Route("admin/screenshot/modifier/{id}", name="admin_edit_screenshot")
+     * @param Request $request
+     * @param EntityManagerInterface $manager
+     * @param SluggerInterface $slugger
+     * @param $id
+     * @param ScreenshotRepository $scrRepository
+     * @return Response
+     * @IsGranted("ROLE_ADMIN")
+     */
+    public function editScreenshot(Request $request, EntityManagerInterface $manager, SluggerInterface $slugger, $id, ScreenshotRepository $scrRepository): Response
+    {
+        $screenshot = $scrRepository->find($id);
+        $form = $this->createForm(ScreenshotType::class, $screenshot);
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()) {
+            /** @var Screenshot $screenshot */
+            $screenshot = $form->getData();
+
+            $imageFile = $form->get('image')->getData();
+
+            if($imageFile) {
+                $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeFilename = $slugger->slug($originalFilename);
+                $newFilename = $safeFilename.'-'.uniqid().'.'.$imageFile->guessExtension();
+
+                try {
+                    $imageFile->move(
+                        $this->getParameter('images_directory'),
+                        $newFilename
+                    );
+                } catch (FileException $e) {
+                    echo $e;
+                }
+
+                $screenshot->setImageFilename($newFilename);
+            }
+
+            $manager->persist($screenshot);
+            $manager->flush();
+
+            return $this->redirectToRoute("realisation_admin", ["id" => $screenshot->getRealisation()->getId()]);
         }
 
         return $this->renderForm('admin/add_screenshot.html.twig', [

@@ -1,4 +1,8 @@
 @media (max-width: $md) {
+  html {
+    font-size: 150%;
+  }
+
   section {
     .columns {
       .column {

@@ -8,7 +8,7 @@
         <div class="section-inner">
             <h2>Bienvenue {{ app.user.username }}</h2>
 
-            <h4>Liste des réalisations</h4>
+            <h3>Liste des réalisations</h3>
 
             <div class="dotted-titles">
                 {% for realisation in realisations %}
@@ -18,6 +18,17 @@
             </div>
 
             <a class="download" href="{{ path("admin_add_realisation") }}">+ Ajouter</a>
+
+            <h3>Messages du formulaire de contact</h3>
+
+            <div class="dotted-titles">
+                {% for message in messages %}
+                    <h3><em>{{ message.id }}</em>{{ message.name }} - {{ message.mail }} - {{ message.website? message.website : "" }}</h3>
+                    <p>{{ message.message }}</p>
+                {% endfor %}
+            </div>
+
+            <p>Messages attrapés par le pot de miel : {{ honeyPots|length }}. Dernière tentative : {{ honeyPots|last.attemptDate|date('d/m/y') }}</p>
         </div>
     </section>
 {% endblock %}

@@ -2,12 +2,20 @@
   &.entrance-left {
     > *, > .entrance-skip > *, &.entrance-standalone {
       transform:skew(-40deg, 20deg) translateX(-70vw);
+
+      @media (max-width: $md) {
+        transform:skew(-40deg, 20deg) translateX(-110vw);
+      }
     }
   }
 
   &.entrance-right {
     > *, > .entrance-skip > *, &.entrance-standalone {
       transform:skew(40deg, -20deg) translateX(70vw);
+
+      @media (max-width: $md) {
+        transform:skew(40deg, -20deg) translateX(110vw);
+      }
     }
   }
 

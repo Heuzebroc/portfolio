@@ -25,7 +25,7 @@
                     <div class="dotted-titles">
                         {% for link in realisation.links %}
                             <h3>{% if link.weight %}<em>{{ link.weight }}</em>{% endif %}{{ link.label }}</h3>
-                            <p>{{ link.url }} - <a href="{{ path("admin_edit_realisation", {id: realisation.id}) }}">Modifier</a></p>
+                            <p>{{ link.url }} - <a href="{{ path("admin_edit_link", {id: link.id}) }}">Modifier</a></p>
                         {% endfor %}
                     </div>
 
@@ -38,12 +38,12 @@
                     <div class="dotted-titles">
                         {% for screenshot in realisation.screenshots %}
                             <h3>{% if screenshot.supplement %}<em>Sup.</em>{% endif %}{{ screenshot.description }}</h3>
-                            <p>{{ screenshot.imageFilename }} - <a href="{{ path("admin_edit_realisation", {id: realisation.id}) }}">Modifier</a></p>
+                            <p>{{ screenshot.imageFilename }} - <a href="{{ path("admin_edit_screenshot", {id: screenshot.id}) }}">Modifier</a></p>
                         {% endfor %}
                     </div>
 
                     <a class="download" href="{{ path("admin_add_screenshot", {realisationId: realisation.id}) }}">+ Ajouter</a>
-                </div>
+                </div>cd
             </div>
         </div>
     </section>
