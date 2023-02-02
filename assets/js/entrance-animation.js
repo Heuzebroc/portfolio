@@ -35,4 +35,4 @@ const scrollListener = e => {
 document.addEventListener("scroll", scrollListener);
 
 //preliminary reveal before any scrolling
-scrollListener(0);
+document.addEventListener("DOMContentLoaded", scrollListener);
